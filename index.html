@@ -23,6 +23,7 @@
   --muted:#5a5a6e;
 }
 
+@keyframes scrollkw{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Nunito',sans-serif;background:var(--off);color:var(--text);overflow-x:hidden;}
@@ -89,7 +90,7 @@ nav{
   line-height:1.75;max-width:580px;margin:20px 0 32px;font-weight:600;
 }
 .hero-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;align-items:center;}
-.pill{padding:7px 15px;border-radius:4px;font-weight:700;font-size:0.82rem;line-height:1.35;display:inline-flex;align-items:center;}
+.pill{padding:7px 16px;border-radius:4px;font-weight:700;font-size:0.88rem;line-height:1.35;display:inline-flex;align-items:center;}
 .p-lime{background:var(--lime);color:var(--navy);}
 .p-ghost{background:rgba(255,255,255,0.12);color:white;border:1px solid rgba(255,255,255,0.25);}
 .p-pink{background:var(--pink);color:white;}
@@ -297,7 +298,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
   .hero{padding:100px 22px 56px;min-height:auto;}
   .section-wrap,.pricing-inner,.faq-inner,.reg-inner{padding:60px 22px;}
   .hero-pills{row-gap:6px;column-gap:8px;margin-bottom:22px;}
-  .pill{font-size:0.78rem;padding:5px 11px;line-height:1.35;}
+  .pill{font-size:0.8rem;padding:5px 12px;}
   .hero-btns{gap:10px;}
   .btn-lime,.btn-outline-white{padding:13px 22px;font-size:0.92rem;}
   .stat-strip{display:grid;grid-template-columns:1fr 1fr;gap:22px 16px;padding:24px 18px;}
@@ -308,7 +309,25 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
   footer{flex-direction:column;align-items:flex-start;padding:32px 18px;}
   .float{bottom:14px;right:14px;padding:10px 18px;font-size:0.82rem;}
 }
+
+/* ── WEEK CHECKBOXES ── */
+.week-checks{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+.wck{display:grid;grid-template-columns:20px 1fr;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;border:2px solid #e8e8e8;cursor:pointer;transition:all 0.2s;background:white;}
+.wck:hover{border-color:var(--purple);background:#f8f5ff;}
+.wck input[type="checkbox"]{width:18px;height:18px;accent-color:var(--purple);cursor:pointer;margin:0;}
+.wck span{font-size:0.85rem;font-weight:700;color:var(--navy);line-height:1.35;}
+.wck span em{font-style:normal;font-weight:600;color:var(--muted);font-size:0.75rem;display:block;margin-top:1px;}
+.wck.wck-all{background:var(--lime-pale);border-color:var(--lime-dark);padding:11px 14px;}
+.wck:hover,.wck.wck-all:hover{border-color:var(--purple);}
+.wck.checked{border-color:var(--purple);background:#f0ecff;}
+.wck.wck-all.checked{background:var(--lime-bg);border-color:var(--purple);}
+.children-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:16px;}
+.child-col{border-radius:10px;padding:18px 18px;border:2px solid var(--lime-dark);background:var(--lime-pale);}
+.child-col.c2col{background:#f0ecff;border-color:var(--purple);}
+.child-col-hdr{font-size:0.75rem;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;}
+@media(max-width:700px){.children-cols{grid-template-columns:1fr;}}
 </style>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
 
@@ -333,18 +352,20 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
   <div class="hero-blob2"></div>
   <div class="hero-bg-text">BOOKS</div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">📚 Enrolling Now · May–June 2026</div>
+    <div class="hero-eyebrow">📚 Enrolling Now · 27 Apr – 29 May 2026</div>
     <h1 class="hero-title">
       <span class="italic">Summer</span>
       <span class="sub">Literary Camp 2026</span>
+      <span style="display:block;font-size:clamp(0.9rem,1.8vw,1.1rem);color:var(--lime);font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-top:8px;font-style:normal;font-family:'Nunito',sans-serif;">by Bukmuk Bookverse</span>
     </h1>
-    <p class="hero-desc">A live, online literary camp where children don't just read, they speak, write, debate, and perform. Every week a new skill. Every session a real outcome. Bukmuk Bookverse brings the classroom to life, five days a week.</p>
+    <p class="hero-desc">Not a screen time filler. A live, online camp where children speak, write, debate and perform, every single day. Five weeks. Real skills. One published anthology.</p>
     <div class="hero-pills">
       <span class="pill p-lime">💻 Live on Zoom</span>
-      <span class="pill p-ghost">Class 1–8</span>
-      <span class="pill p-pink">Small batches · 15 kids max</span>
-      <span class="pill p-ghost">Mon–Fri, Daily</span>
-      <span class="pill p-ghost">5 Weeks</span>
+      <span class="pill p-pink">Small batches · 10 kids max</span>
+      <span class="pill p-ghost">Class 1–8 · Age 7–16</span>
+      <div style="width:100%;height:0;"></div>
+      <span class="pill p-ghost">5 Weeks · Mon–Fri Daily</span>
+      <span class="pill p-ghost">📅 27 Apr – 29 May 2026</span>
     </div>
     <div class="hero-btns">
       <a href="#register" class="btn-lime">Reserve Your Child's Seat</a>
@@ -355,30 +376,76 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
 <!-- ── STATS ── -->
 <div class="stat-strip">
-  <div class="stat"><span class="stat-n">5</span><span class="stat-l">Theme Weeks</span></div>
+  <div class="stat"><span class="stat-n">5</span><span class="stat-l">Weeks · Apr–May</span></div>
   <div class="stat"><span class="stat-n">25</span><span class="stat-l">Live Sessions</span></div>
   <div class="stat"><span class="stat-n">2</span><span class="stat-l">Age Tracks</span></div>
-  <div class="stat"><span class="stat-n">15</span><span class="stat-l">Kids Per Batch</span></div>
+  <div class="stat"><span class="stat-n">10</span><span class="stat-l">Kids Per Batch</span></div>
   <div class="stat"><span class="stat-n">4</span><span class="stat-l">Batches Daily</span></div>
   <div class="stat"><span class="stat-n">1</span><span class="stat-l">Anthology Published</span></div>
 </div>
+
+<!-- ── KEYWORDS STRIP ── -->
+<div style="background:var(--navy);padding:28px 48px;overflow:hidden;">
+  <div style="display:flex;gap:0;animation:scrollkw 30s linear infinite;width:max-content;">
+    <span style="color:var(--lime);font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">📚 Vocabulary Enhancement</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:white;font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🏆 Academic Excellence</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:var(--lime);font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🎨 Creativity & Expression</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:white;font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🎤 Public Speaking Confidence</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:var(--lime);font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🧠 Critical Thinking</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:white;font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">✍️ Creative Writing</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:var(--lime);font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🎭 Drama & Performance</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:white;font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">💡 Debate & Persuasion</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:var(--lime);font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">❤️ Emotional Intelligence</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:white;font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🌟 Leadership Voice</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:var(--lime);font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">📚 Vocabulary Enhancement</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:white;font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🏆 Academic Excellence</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:var(--lime);font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🎨 Creativity & Expression</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:white;font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🎤 Public Speaking Confidence</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:var(--lime);font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🧠 Critical Thinking</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:white;font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">✍️ Creative Writing</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:var(--lime);font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🎭 Drama & Performance</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:white;font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">💡 Debate & Persuasion</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:var(--lime);font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">❤️ Emotional Intelligence</span>
+    <span style="color:rgba(255,255,255,0.3);padding:0 8px;">·</span>
+    <span style="color:white;font-weight:900;font-size:0.9rem;letter-spacing:0.5px;padding:0 32px;white-space:nowrap;">🌟 Leadership Voice</span>
+  </div>
+</div>
+
 
 <!-- ── PROGRAMME ── -->
 <div class="prog-bg" id="programme">
 <div class="section-wrap fade-up">
   <span class="tag">About the programme</span>
-  <h2 class="h2">What the Bukmuk<br><em>Literary Camp actually does</em></h2>
+  <h2 class="h2">What the Bukmuk<br><em>Literary Camp Does</em></h2>
   <div class="prog-grid">
     <div class="prog-body">
       <p>Most summer programmes keep children busy. This one makes them <strong>better communicators</strong>, in ways that show up in school, in exams, and in life. The Bukmuk Summer Literary Camp runs 5 weeks of live, instructor-led sessions built around a single belief: that the ability to express yourself clearly is the most transferable skill a child can develop.</p>
-      <p>Every session is 45–60 minutes of real activity, not passive watching. Children debate, write stories, give speeches, act out scenes, analyse situations, and share their thinking with peers. The batch stays small (15 kids maximum) so every child is seen, heard, and pushed.</p>
+      <p>Each session runs 45–60 minutes and it's all doing, not watching. One day they're in a debate, the next they're performing a scene or delivering a speech. They write, they react, they argue their point, they listen to someone else's. The group is small (10 kids maximum), which means the instructor actually knows your child's name by day two, and no one gets to sit quietly in a corner.</p>
       <p>The two tracks, <strong>Junior (Age 7–10)</strong> and <strong>Senior (Age 10–16)</strong>, are structured differently on purpose. Junior builds creative confidence through storytelling, roleplay, and expression. Senior builds communication depth through debate, persuasion, analytical writing, and leadership voice. Both tracks run Monday through Friday with morning and evening batch options.</p>
       <ul class="outcome-list">
         <li>Trained Bukmuk instructors: not freelancers, not automated content</li>
         <li>Live, real-time interaction: every session happens on Zoom with full camera-on energy</li>
         <li>Structured week-by-week themes with clear learning goals per session</li>
         <li>Written and spoken outputs: children leave with something they made</li>
-        <li>Week 5 Showcase: a live performance for family that the whole camp builds toward</li>
+        <li>Showcase Day in Week 5: a live performance for family. The last day of the camp.</li>
       </ul>
     </div>
     <div>
@@ -425,7 +492,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
           <li>Drawing and storytelling combined (Draw & Tell format)</li>
           <li>Art & craft activities tied to weekly themes</li>
           <li>Fun speaking games: "Would You Rather", Telephone Conversations, Pack Your Bag</li>
-          <li>Week 5 Showcase: Story presentation + performance</li>
+          <li>Under the Ocean: world-building, descriptive storytelling, Oceanographers, craft activity, Twist the Tale, and Showcase Day</li>
         </ul>
       </div>
     </div>
@@ -436,14 +503,14 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         <p class="tsub">1 hour per session · Debate, writing, leadership</p>
       </div>
       <div class="track-body">
-        <div class="track-time">🌅 12:30pm–1:30pm &nbsp;|&nbsp; 🌆 3:00pm–4:00pm</div>
+        <div class="track-time">🌅 11:00am–12:00noon &nbsp;|&nbsp; 🌆 3:00pm–4:00pm</div>
         <p class="tdesc">Built for children who need to sharpen how they think and communicate. Each week builds on the previous one, moving from basic expression through to leadership voice and persuasive performance.</p>
         <ul class="outcome-list">
           <li>Structured debate formats: mini debates, JAM sessions, formal debates</li>
           <li>Persuasive and analytical writing tied to real-world topics</li>
           <li>Newspaper reading, current affairs discussions, two-viewpoint writing</li>
           <li>Mock interviews, elevator pitches, extempore speaking</li>
-          <li>Week 5 Showcase: Speeches, debate performance, final presentations</li>
+          <li>Impact storytelling, extempore with a twist, creative speaking formats, showcase preparation, and Showcase Day</li>
         </ul>
       </div>
     </div>
@@ -469,7 +536,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-junior">
-          <span class="wk-num">Week 1</span>
+          <span class="wk-num">Week 1 · 27 Apr–1 May</span>
           <h4>Animals & Nature</h4>
         </div>
         <div class="wk-body">
@@ -486,7 +553,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-junior">
-          <span class="wk-num">Week 2</span>
+          <span class="wk-num">Week 2 · 4–8 May</span>
           <h4>Family & Community</h4>
         </div>
         <div class="wk-body">
@@ -504,7 +571,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-junior">
-          <span class="wk-num">Week 3</span>
+          <span class="wk-num">Week 3 · 11–15 May</span>
           <h4>Adventure & Travel</h4>
         </div>
         <div class="wk-body">
@@ -521,7 +588,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-junior">
-          <span class="wk-num">Week 4</span>
+          <span class="wk-num">Week 4 · 18–22 May</span>
           <h4>Feelings & Emotions</h4>
         </div>
         <div class="wk-body">
@@ -538,7 +605,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-junior">
-          <span class="wk-num">Week 5</span>
+          <span class="wk-num">Week 5 · 25–29 May ★</span>
           <h4>Finding Nemo & Showcase Day</h4>
         </div>
         <div class="wk-body">
@@ -562,7 +629,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-senior-bg">
-          <span class="wk-num">Week 1</span>
+          <span class="wk-num">Week 1 · 27 Apr–1 May</span>
           <h4>Communication Basics</h4>
         </div>
         <div class="wk-body">
@@ -579,7 +646,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-senior-bg">
-          <span class="wk-num">Week 2</span>
+          <span class="wk-num">Week 2 · 4–8 May</span>
           <h4>Persuasion Skills</h4>
         </div>
         <div class="wk-body">
@@ -596,7 +663,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-senior-bg">
-          <span class="wk-num">Week 3</span>
+          <span class="wk-num">Week 3 · 11–15 May</span>
           <h4>Current Affairs</h4>
         </div>
         <div class="wk-body">
@@ -613,7 +680,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-senior-bg">
-          <span class="wk-num">Week 4</span>
+          <span class="wk-num">Week 4 · 18–22 May</span>
           <h4>Opinions & Leadership</h4>
         </div>
         <div class="wk-body">
@@ -630,7 +697,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-senior-bg">
-          <span class="wk-num">Week 5</span>
+          <span class="wk-num">Week 5 · 25–29 May ★</span>
           <h4>Creative Expression & Showcase</h4>
         </div>
         <div class="wk-body">
@@ -656,7 +723,40 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 <div class="pricing-inner fade-up">
   <span class="tag">Enrollment & pricing</span>
   <h2 class="h2">Every week is open.<br><em>Pick one or all five.</em></h2>
-  <p class="lead">Each week is a self-contained theme. Enrol for a single week to try it, bundle two or more, or lock in all five and get the best rate, plus Showcase access and Anthology eligibility.</p>
+  <p class="lead">Each week is a self-contained theme. Enrol for a single week to try it, add more, or lock in all five, the more weeks you pick, the lower the per-session rate.</p>
+
+  <!-- SAVINGS CALLOUT -->
+  <div style="background:var(--lime-bg);border:2px solid var(--lime-dark);border-radius:14px;padding:24px 28px;margin-top:28px;margin-bottom:8px;">
+    <div style="font-size:0.75rem;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">💰 The more weeks, the better the rate</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;">
+      <div style="background:white;border-radius:8px;padding:14px 12px;text-align:center;border:2px solid #e0e0e0;">
+        <div style="font-size:1.35rem;font-weight:900;color:var(--navy);">₹2,000</div>
+        <div style="font-size:0.72rem;font-weight:800;color:var(--muted);margin-top:2px;">1 Week</div>
+        <div style="font-size:0.68rem;color:#aaa;margin-top:4px;">₹400/session</div>
+      </div>
+      <div style="background:white;border-radius:8px;padding:14px 12px;text-align:center;border:2px solid #e0e0e0;">
+        <div style="font-size:1.35rem;font-weight:900;color:var(--navy);">₹3,800</div>
+        <div style="font-size:0.72rem;font-weight:800;color:var(--muted);margin-top:2px;">2 Weeks</div>
+        <div style="font-size:0.68rem;color:var(--purple);font-weight:700;margin-top:4px;">Save ₹200</div>
+      </div>
+      <div style="background:white;border-radius:8px;padding:14px 12px;text-align:center;border:2px solid #e0e0e0;">
+        <div style="font-size:1.35rem;font-weight:900;color:var(--navy);">₹5,400</div>
+        <div style="font-size:0.72rem;font-weight:800;color:var(--muted);margin-top:2px;">3 Weeks</div>
+        <div style="font-size:0.68rem;color:var(--purple);font-weight:700;margin-top:4px;">Save ₹600</div>
+      </div>
+      <div style="background:white;border-radius:8px;padding:14px 12px;text-align:center;border:2px solid #e0e0e0;">
+        <div style="font-size:1.35rem;font-weight:900;color:var(--navy);">₹7,000</div>
+        <div style="font-size:0.72rem;font-weight:800;color:var(--muted);margin-top:2px;">4 Weeks</div>
+        <div style="font-size:0.68rem;color:var(--purple);font-weight:700;margin-top:4px;">Save ₹1,000</div>
+      </div>
+      <div style="background:var(--purple);border-radius:8px;padding:14px 12px;text-align:center;border:2px solid var(--purple);position:relative;">
+        <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--lime);color:var(--navy);padding:2px 10px;border-radius:3px;font-size:0.65rem;font-weight:900;white-space:nowrap;">BEST VALUE</div>
+        <div style="font-size:1.35rem;font-weight:900;color:var(--lime);">₹8,500</div>
+        <div style="font-size:0.72rem;font-weight:800;color:rgba(255,255,255,0.8);margin-top:2px;">All 5 Weeks</div>
+        <div style="font-size:0.68rem;color:var(--lime);font-weight:700;margin-top:4px;">Save ₹1,500</div>
+      </div>
+    </div>
+  </div>
 
   <!-- JUNIOR PRICING -->
   <div class="track-pricing">
@@ -695,7 +795,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         <div class="price-per">15 sessions · ₹360/session</div>
         <ul>
           <li>Choose any 3 theme weeks</li>
-          <li>15 live sessions total</li>
+          <li>10 live sessions total</li>
           <li>Priority batch selection</li>
           <li>Certificate of participation</li>
         </ul>
@@ -757,7 +857,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         <div class="price-per">15 sessions · ₹360/session</div>
         <ul>
           <li>Choose any 3 theme weeks</li>
-          <li>15 live sessions total</li>
+          <li>10 live sessions total</li>
           <li>Priority batch selection</li>
           <li>Certificate of participation</li>
         </ul>
@@ -785,10 +885,10 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
     <div class="combo-icon">👨‍👧‍👦</div>
     <div class="combo-content">
       <h3>Sibling Bundle</h3>
-      <p>Two kids. Two tracks. One family discount. Register one child on Junior and one on Senior, or any two kids on the same track, and get ₹1,500 off the combined total. Contact the Bukmuk team to apply the discount after registering both.</p>
+      <p>Two kids. Two tracks. One family discount. Register one child on Junior and one on Senior, or any two kids on the same track, and get ₹500 off the combined total. Contact the Bukmuk team to apply the discount after registering both.</p>
     </div>
     <div class="combo-price">
-      <span class="amt">₹1,500</span>
+      <span class="amt">₹500</span>
       <div class="note">off when 2 kids register</div>
       <a href="#register">Register Both →</a>
     </div>
@@ -887,7 +987,9 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
   <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What do we need to attend?<em>▼</em></div><div class="faq-a">Any device with Zoom, laptop, tablet, or phone. Stable internet and a working camera. A quiet space where your child can speak without distraction. Some Junior sessions involve a craft activity, for which a simple materials list will be shared in advance.</div></div>
 
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">When do sessions happen? Can we choose our batch?<em>▼</em></div><div class="faq-a">Junior: 11am–12noon (morning) or 4:30–5:30pm (evening). Senior: 12:30–1:30pm (morning) or 3–4pm (evening). You can state your preferred batch at registration, we'll confirm based on availability.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do children receive a certificate after the camp?<em>▼</em></div><div class="faq-a">Yes, every child who completes a week receives a digital certificate of participation, sent to your email within 48 hours of the week ending. Children who attend all 5 weeks receive a special Bukmuk Bookverse Completion Certificate. Physical certificates can be requested at an additional courier charge of ₹150, let us know at registration.</div></div>
+
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">When do sessions happen? Can we choose our batch?<em>▼</em></div><div class="faq-a">Senior: 11am–12noon and 3–4pm. Junior: 12:30–1:30pm and 4:30–5:30pm. Weeks run: Week 1 (27 Apr–1 May), Week 2 (4–8 May), Week 3 (11–15 May), Week 4 (18–22 May), Week 5 (25–29 May). You can state your preferred batch at registration, we'll confirm based on availability.</div></div>
 
 </div>
 </div>
@@ -896,7 +998,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 <div class="reg-bg" id="register">
 <div class="reg-inner fade-up">
   <h2 class="h2"><em>Lock in your<br>child's spot</em></h2>
-  <p class="lead">Batches cap at 15 kids. Leave your details and the Bukmuk team will confirm your spot, batch timing, and payment link within 24 hours. No payment needed right now.</p>
+  <p class="lead">Batches cap at 10 kids. Leave your details and the Bukmuk team will confirm your spot, batch timing, and payment link within 24 hours. No payment needed right now.</p>
   <div class="reg-form">
     <!-- PRICE CALCULATOR -->
     <div id="price-summary" style="background:var(--lime);border-radius:10px;padding:16px 20px;margin-bottom:22px;display:none;">
@@ -907,7 +1009,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         </div>
         <div id="price-total" style="font-size:2rem;font-weight:900;color:var(--navy);font-family:'Nunito',sans-serif;"></div>
       </div>
-      <div id="sibling-badge" style="display:none;margin-top:8px;background:var(--purple);color:white;padding:4px 12px;border-radius:4px;font-size:0.75rem;font-weight:800;width:fit-content;">🎉 Sibling discount ₹1,500 applied</div>
+      <div id="sibling-badge" style="display:none;margin-top:8px;background:var(--purple);color:white;padding:4px 12px;border-radius:4px;font-size:0.75rem;font-weight:800;width:fit-content;">🎉 Sibling discount ₹500 applied</div>
     </div>
 
     <div class="urgency">⚡ <span>Batches filling up</span>, confirmed on a first-registered basis</div>
@@ -916,9 +1018,20 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
       action="https://docs.google.com/forms/d/e/1FAIpQLScR3fhVaos4KITHhDu5cUcDfBtmBQEmGX-jANkguCRiQmxBjg/formResponse"
       method="POST" onsubmit="return false;">
 
+      <!-- PARENT DETAILS -->
+      <div style="background:var(--lime-pale);border-radius:10px;padding:18px 20px;margin-bottom:16px;border:2px solid var(--lime-dark);">
+        <div style="font-size:0.78rem;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px;">Step 1 · Your Contact Details</div>
+        <div class="form-row">
+          <div class="fg"><label>Parent's Name *</label><input type="text" id="parent_name" name="entry.1772530642" placeholder="Your full name" required></div>
+          <div class="fg"><label>WhatsApp Number *</label><input type="tel" id="parent_wa" name="entry.1112636262" placeholder="+91 98765 43210" required onblur="logParentContact()"></div>
+        </div>
+        <div class="fg"><label>Email Address *</label><input type="email" id="parent_email" name="entry.1119779107" placeholder="you@email.com" required></div>
+      </div>
+
+
       <!-- CHILD 1 -->
       <div style="background:var(--lime-pale);border-radius:10px;padding:18px 20px;margin-bottom:16px;border:2px solid var(--lime-dark);">
-        <div style="font-size:0.78rem;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px;">Child 1</div>
+        <div style="font-size:0.78rem;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px;">Step 2 · Child 1 Details</div>
         <div class="form-row">
           <div class="fg"><label>Child's Name *</label><input type="text" id="child1_name" name="entry.496813096" placeholder="Child's first name" required></div>
           <div class="fg"><label>Child's Class *</label>
@@ -934,47 +1047,44 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
           <div class="fg"><label>Track *</label>
             <select id="child1_track" name="entry.291538977" onchange="updatePrice()" required>
               <option value="">Select track</option>
-              <option>Junior</option>
-              <option>Senior</option>
-              <option>Not Sure</option>
+              <option>Junior</option><option>Senior</option><option>Not Sure</option>
             </select>
           </div>
-          <div class="fg"><label>Preferred Batch Timing *</label>
+          <div class="fg"><label>Batch Timing *</label>
             <select id="child1_timing" name="entry.1208959417" required>
               <option value="">Select timing</option>
-              <option>Junior Morning : 11 AM - 12 Noon</option>
-              <option>Junior Evening : 4:30 PM - 5:30</option>
-              <option>Senior Morning : 12:30 PM - 1:30 PM</option>
+              <option>Senior Morning : 11:00 AM - 12:00 Noon</option>
+              <option>Junior Morning : 12:30 PM - 1:30 PM</option>
               <option>Senior Evening : 3:00 PM - 4:00 PM</option>
+              <option>Junior Evening : 4:30 PM - 5:30 PM</option>
             </select>
           </div>
         </div>
-        <div class="fg"><label>Weeks *</label>
-          <select id="child1_weeks" name="entry.1263402405" onchange="updatePrice()" required>
-            <option value="">Select</option>
-            <option value="1">Week 1 only - Animal and Nature / Communication Basics</option>
-            <option value="2">Week 2 only - Family and Community / Pursuation Skills</option>
-            <option value="3">Week 3 only - Adventure &amp; Travel / Current Affairs</option>
-            <option value="4">Week 4 only - Feelings &amp; Emotions / Opinions and Leadership</option>
-            <option value="5">Week 5 only - Showcase only</option>
-            <option value="23">Multiple Weeks - Team will share options</option>
-            <option value="all">All 5 Weeks (Best Value)</option>
-          </select>
+        <div class="fg">
+          <label>Select Weeks *</label>
+          <div class="week-checks" id="child1_week_checks">
+            <label class="wck wck-all"><input type="checkbox" id="c1_all" onchange="toggleAllWeeks(1,this)"> <span>⭐ All 5 Weeks (27 Apr–29 May) <strong style="color:var(--purple)">₹8,500</strong> <em>Save ₹1,500</em></span></label>
+            <label class="wck"><input type="checkbox" id="c1_w1" value="1" onchange="updatePrice()"> <span>Week 1 · 27 Apr–1 May<em>Animals & Nature / Communication Basics</em></span></label>
+            <label class="wck"><input type="checkbox" id="c1_w2" value="2" onchange="updatePrice()"> <span>Week 2 · 4–8 May<em>Family & Community / Persuasion Skills</em></span></label>
+            <label class="wck"><input type="checkbox" id="c1_w3" value="3" onchange="updatePrice()"> <span>Week 3 · 11–15 May<em>Adventure & Travel / Current Affairs</em></span></label>
+            <label class="wck"><input type="checkbox" id="c1_w4" value="4" onchange="updatePrice()"> <span>Week 4 · 18–22 May<em>Feelings & Emotions / Opinions & Leadership</em></span></label>
+            <label class="wck"><input type="checkbox" id="c1_w5" value="5" onchange="updatePrice()"> <span>Week 5 · 25–29 May<em>Showcase Week ⭐</em></span></label>
+          </div>
         </div>
       </div>
 
-      <!-- ADD SECOND CHILD -->
+      <!-- ADD SECOND CHILD TOGGLE -->
       <div style="text-align:center;margin-bottom:16px;">
-        <button type="button" id="add-child-btn" onclick="toggleChild2()" style="background:white;border:2px dashed var(--purple);color:var(--purple);padding:10px 24px;border-radius:7px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.88rem;cursor:pointer;transition:all 0.2s;">
-          + Add a second child (save ₹1,500)
+        <button type="button" id="add-child-btn" onclick="toggleChild2()" style="background:white;border:2px dashed var(--purple);color:var(--purple);padding:11px 28px;border-radius:7px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.88rem;cursor:pointer;width:100%;transition:all 0.2s;">
+          + Add a second child &nbsp;·&nbsp; Save ₹500
         </button>
       </div>
 
       <!-- CHILD 2 (hidden by default) -->
       <div id="child2-block" style="display:none;background:#f0ecff;border-radius:10px;padding:18px 20px;margin-bottom:16px;border:2px solid var(--purple);">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-          <div style="font-size:0.78rem;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:0.5px;">Child 2 <span style="background:var(--lime);color:var(--navy);padding:2px 8px;border-radius:3px;font-size:0.68rem;margin-left:6px;">₹1,500 off</span></div>
-          <button type="button" onclick="toggleChild2()" style="background:none;border:none;color:#999;font-size:1.2rem;cursor:pointer;line-height:1;">✕</button>
+          <div style="font-size:0.78rem;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:0.5px;">Child 2 <span style="background:var(--lime);color:var(--navy);padding:2px 8px;border-radius:3px;font-size:0.68rem;margin-left:6px;">₹500 off</span></div>
+          <button type="button" onclick="toggleChild2()" style="background:none;border:none;color:#aaa;font-size:1.2rem;cursor:pointer;line-height:1;padding:0;">✕</button>
         </div>
         <div class="form-row">
           <div class="fg"><label>Child's Name</label><input type="text" id="child2_name" placeholder="Child's first name"></div>
@@ -991,49 +1101,36 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
           <div class="fg"><label>Track</label>
             <select id="child2_track" onchange="updatePrice()">
               <option value="">Select track</option>
-              <option>Junior</option>
-              <option>Senior</option>
-              <option>Not Sure</option>
+              <option>Junior</option><option>Senior</option><option>Not Sure</option>
             </select>
           </div>
-          <div class="fg"><label>Preferred Batch Timing</label>
+          <div class="fg"><label>Batch Timing</label>
             <select id="child2_timing">
               <option value="">Select timing</option>
-              <option>Junior Morning : 11 AM - 12 Noon</option>
-              <option>Junior Evening : 4:30 PM - 5:30</option>
-              <option>Senior Morning : 12:30 PM - 1:30 PM</option>
+              <option>Senior Morning : 11:00 AM - 12:00 Noon</option>
+              <option>Junior Morning : 12:30 PM - 1:30 PM</option>
               <option>Senior Evening : 3:00 PM - 4:00 PM</option>
+              <option>Junior Evening : 4:30 PM - 5:30 PM</option>
             </select>
           </div>
         </div>
-        <div class="fg"><label>Weeks</label>
-          <select id="child2_weeks" onchange="updatePrice()">
-            <option value="">Select</option>
-            <option value="1">Week 1 only - Animal and Nature / Communication Basics</option>
-            <option value="2">Week 2 only - Family and Community / Pursuation Skills</option>
-            <option value="3">Week 3 only - Adventure &amp; Travel / Current Affairs</option>
-            <option value="4">Week 4 only - Feelings &amp; Emotions / Opinions and Leadership</option>
-            <option value="5">Week 5 only - Showcase only</option>
-            <option value="23">Multiple Weeks - Team will share options</option>
-            <option value="all">All 5 Weeks (Best Value)</option>
-          </select>
+        <div class="fg">
+          <label>Select Weeks</label>
+          <div class="week-checks" id="child2_week_checks">
+            <label class="wck wck-all"><input type="checkbox" id="c2_all" onchange="toggleAllWeeks(2,this)"> <span>⭐ All 5 Weeks (27 Apr–29 May) <strong style="color:var(--purple)">₹8,500</strong> <em>Save ₹1,500</em></span></label>
+            <label class="wck"><input type="checkbox" id="c2_w1" value="1" onchange="updatePrice()"> <span>Week 1 · 27 Apr–1 May<em>Animals & Nature / Communication Basics</em></span></label>
+            <label class="wck"><input type="checkbox" id="c2_w2" value="2" onchange="updatePrice()"> <span>Week 2 · 4–8 May<em>Family & Community / Persuasion Skills</em></span></label>
+            <label class="wck"><input type="checkbox" id="c2_w3" value="3" onchange="updatePrice()"> <span>Week 3 · 11–15 May<em>Adventure & Travel / Current Affairs</em></span></label>
+            <label class="wck"><input type="checkbox" id="c2_w4" value="4" onchange="updatePrice()"> <span>Week 4 · 18–22 May<em>Feelings & Emotions / Opinions & Leadership</em></span></label>
+            <label class="wck"><input type="checkbox" id="c2_w5" value="5" onchange="updatePrice()"> <span>Week 5 · 25–29 May<em>Showcase Week ⭐</em></span></label>
+          </div>
         </div>
       </div>
 
-      <!-- PARENT DETAILS -->
-      <div style="background:var(--lime-pale);border-radius:10px;padding:18px 20px;margin-bottom:16px;border:2px solid var(--lime-dark);">
-        <div style="font-size:0.78rem;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px;">Your Details</div>
-        <div class="form-row">
-          <div class="fg"><label>Parent's Name *</label><input type="text" id="parent_name" name="entry.1772530642" placeholder="Your full name" required></div>
-          <div class="fg"><label>WhatsApp Number *</label><input type="tel" id="parent_wa" name="entry.1112636262" placeholder="+91 98765 43210" required></div>
-        </div>
-        <div class="fg"><label>Email Address *</label><input type="email" id="parent_email" name="entry.1119779107" placeholder="you@email.com" required></div>
-      </div>
-
-      <!-- VALIDATION ERROR -->
+            <!-- VALIDATION ERROR -->
       <div id="form-error" role="alert" aria-live="polite" style="display:none;background:#FFE5EC;border:2px solid #FF4081;color:#B0003A;border-radius:8px;padding:12px 14px;margin-bottom:14px;font-size:0.88rem;font-weight:700;line-height:1.5;"></div>
 
-      <!-- PAY BUTTON -->
+            <!-- PAY BUTTON -->
       <button type="button" id="pay-btn" onclick="startPayment()" class="form-submit">
         Reserve &amp; Pay Now →
       </button>
@@ -1066,18 +1163,48 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 </a>
 
 <script>
-// ── RAZORPAY KEY, replace with your live key before deploying ──
+// ── RAZORPAY KEY ──
 const RAZORPAY_KEY = 'rzp_live_RDqX2u6rbGMpdM';
 
 // ── PRICING ──
-const WEEK_PRICES = { '1':2000, '2':2000, '3':2000, '4':2000, '5':2000, '23':2000, 'all':8500 };
-const MULTI_PRICES = { 2:3800, 3:5400 };
-const SIBLING_DISCOUNT = 1500;
+const WEEK_PRICES = {1:2000,2:2000,3:2000,4:2000,5:2000};
+const BUNDLE_PRICES = {1:2000,2:3800,3:5400,4:7000,5:8500};
+const SIBLING_DISCOUNT = 500;
+
+// ── EARLY CONTACT LOGGER ──
+// Fires as soon as parent fills WhatsApp, captures minimum data even if they drop off
+var parentContactLogged = false;
+function logParentContact() {
+  if (parentContactLogged) return; // only log once
+  var name = document.getElementById('parent_name').value.trim();
+  var wa = document.getElementById('parent_wa').value.trim();
+  var email = document.getElementById('parent_email').value.trim();
+  if (!name || !wa) return; // need at least name + WA
+
+  parentContactLogged = true;
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      token: 'BUKMUK2026SECRET',
+      parentName: name,
+      whatsapp: wa,
+      email: email || '',
+      child1Name: '', child1Class: '', child1Track: '', child1Timing: '', child1Weeks: '',
+      child2Name: '', child2Class: '', child2Track: '', child2Timing: '', child2Weeks: '',
+      amount: 0,
+      paymentId: 'CONTACT-ONLY',
+      status: 'CONTACT - Did not complete registration'
+    })
+  }).catch(function(){});
+}
 
 // ── SCROLL ANIMATIONS ──
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, {threshold: 0.08});
+},{threshold:0.08});
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
 // ── CURRICULUM TABS ──
@@ -1092,118 +1219,189 @@ function switchTab(track, btn) {
 function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 
 // ── CHILD 2 TOGGLE ──
-let child2Active = false;
+var child2Active = false;
 function toggleChild2() {
   child2Active = !child2Active;
-  const block = document.getElementById('child2-block');
-  const btn = document.getElementById('add-child-btn');
+  var block = document.getElementById('child2-block');
+  var btn = document.getElementById('add-child-btn');
   block.style.display = child2Active ? 'block' : 'none';
-  btn.style.display = child2Active ? 'none' : 'block';
+  if(btn) btn.style.display = child2Active ? 'none' : 'block';
   if (!child2Active) {
-    document.getElementById('child2_weeks').value = '';
-    document.getElementById('child2_track').value = '';
+    [1,2,3,4,5].forEach(function(w) {
+      var el = document.getElementById('c2_w'+w);
+      if(el) { el.checked = false; el.closest('.wck').classList.remove('checked'); }
+    });
+    var allEl = document.getElementById('c2_all');
+    if(allEl) { allEl.checked = false; allEl.closest('.wck').classList.remove('checked'); }
+    var t = document.getElementById('child2_track');
+    if(t) t.value = '';
   }
   updatePrice();
 }
-
-// ── PRICE CALCULATOR ──
-function getWeekPrice(weeksVal) {
-  if (!weeksVal) return 0;
-  return WEEK_PRICES[weeksVal] || 0;
+// ── TOGGLE ALL WEEKS ──// ── TOGGLE ALL WEEKS ──
+function toggleAllWeeks(child, checkbox) {
+  var prefix = 'c' + child + '_w';
+  var checked = checkbox.checked;
+  [1,2,3,4,5].forEach(function(w) {
+    var el = document.getElementById(prefix + w);
+    if(el) {
+      el.checked = checked;
+      el.closest('.wck').classList.toggle('checked', checked);
+    }
+  });
+  checkbox.closest('.wck').classList.toggle('checked', checked);
+  updatePrice();
 }
 
+// ── GET SELECTED WEEKS ──
+function getSelectedWeeks(child) {
+  var prefix = 'c' + child + '_w';
+  var selected = [];
+  [1,2,3,4,5].forEach(function(w) {
+    var el = document.getElementById(prefix + w);
+    if(el && el.checked) selected.push(w);
+  });
+  return selected;
+}
+
+function getWeeksPrice(selected) {
+  if(selected.length === 0) return 0;
+  return BUNDLE_PRICES[selected.length] || 0;
+}
+
+function getWeeksLabel(selected) {
+  if(selected.length === 0) return '';
+  if(selected.length === 5) return 'All 5 Weeks (27 Apr-29 May)';
+  var labels = {1:'Week 1 (27 Apr-1 May)',2:'Week 2 (4-8 May)',3:'Week 3 (11-15 May)',4:'Week 4 (18-22 May)',5:'Week 5 (25-29 May)'};
+  return selected.map(function(w){ return labels[w]; }).join(', ');
+}
+
+// ── PRICE CALCULATOR ──
 function updatePrice() {
-  const w1 = document.getElementById('child1_weeks').value;
-  const w2 = child2Active ? document.getElementById('child2_weeks').value : '';
+  // Update checkbox visual states
+  ['c1','c2'].forEach(function(prefix) {
+    [1,2,3,4,5].forEach(function(w) {
+      var el = document.getElementById(prefix+'_w'+w);
+      if(el) el.closest('.wck').classList.toggle('checked', el.checked);
+    });
+    var allEl = document.getElementById(prefix+'_all');
+    if(allEl) {
+      var allChecked = [1,2,3,4,5].every(function(w) {
+        var el = document.getElementById(prefix+'_w'+w);
+        return el && el.checked;
+      });
+      allEl.checked = allChecked;
+      allEl.closest('.wck').classList.toggle('checked', allChecked);
+    }
+  });
 
-  const p1 = getWeekPrice(w1);
-  const p2 = child2Active ? getWeekPrice(w2) : 0;
+  var sel1 = getSelectedWeeks(1);
+  var sel2 = child2Active ? getSelectedWeeks(2) : [];
+  var p1 = getWeeksPrice(sel1);
+  var p2 = getWeeksPrice(sel2);
 
-  if (!p1 && !p2) {
+  if(p1 === 0 && p2 === 0) {
     document.getElementById('price-summary').style.display = 'none';
+    var btn = document.getElementById('pay-btn');
+    btn.textContent = 'Reserve & Pay Now';
     return;
   }
 
-  const sibling = child2Active && p1 > 0 && p2 > 0;
-  const discount = sibling ? SIBLING_DISCOUNT : 0;
-  const total = p1 + p2 - discount;
+  var sibling = child2Active && p1 > 0 && p2 > 0;
+  var discount = sibling ? SIBLING_DISCOUNT : 0;
+  var total = p1 + p2 - discount;
 
-  // Build breakdown text
-  let breakdown = [];
-  if (p1) breakdown.push('Child 1: ₹' + p1.toLocaleString('en-IN'));
-  if (p2) breakdown.push('Child 2: ₹' + p2.toLocaleString('en-IN'));
-  if (discount) breakdown.push('Sibling discount: -₹' + discount.toLocaleString('en-IN'));
+  var breakdown = [];
+  if(p1) breakdown.push('Child 1 (' + sel1.length + ' week' + (sel1.length>1?'s':'') + '): ' + formatINR(p1));
+  if(p2) breakdown.push('Child 2 (' + sel2.length + ' week' + (sel2.length>1?'s':'') + '): ' + formatINR(p2));
+  if(discount) breakdown.push('Sibling discount: -' + formatINR(discount));
 
   document.getElementById('price-breakdown').textContent = breakdown.join(' · ');
-  document.getElementById('price-total').textContent = '₹' + total.toLocaleString('en-IN');
+  document.getElementById('price-total').textContent = formatINR(total);
   document.getElementById('sibling-badge').style.display = sibling ? 'block' : 'none';
   document.getElementById('price-summary').style.display = 'block';
 
-  // Update pay button
-  const btn = document.getElementById('pay-btn');
-  if (total > 0) {
-    btn.textContent = 'Pay ₹' + total.toLocaleString('en-IN') + ' & Reserve →';
-  } else {
-    btn.textContent = 'Reserve & Pay Now →';
-  }
+  var btn = document.getElementById('pay-btn');
+  btn.textContent = 'Pay ' + formatINR(total) + ' & Reserve';
+}
+
+function formatINR(amount) {
+  return '\u20b9' + amount.toLocaleString('en-IN');
 }
 
 // ── FORM VALIDATION ──
-const FIELD_LABELS = {
-  child1_name: "Child's Name", child1_class: "Child's Class", child1_track: 'Track',
-  child1_timing: 'Batch Timing', child1_weeks: 'Week Selection',
-  child2_name: "Child 2 Name", child2_class: "Child 2 Class", child2_track: 'Child 2 Track',
-  child2_timing: 'Child 2 Timing', child2_weeks: 'Child 2 Weeks',
+var FIELD_LABELS = {
+  child1_name: "Child's Name", child1_class: "Child's Class", child1_track: 'Track', child1_timing: 'Batch Timing',
+  child2_name: "Child 2 Name", child2_class: "Child 2 Class", child2_track: 'Child 2 Track', child2_timing: 'Child 2 Timing',
   parent_name: "Parent's Name", parent_wa: 'WhatsApp Number', parent_email: 'Email Address'
 };
 
 function showFormError(msg, focusId) {
-  const box = document.getElementById('form-error');
+  var box = document.getElementById('form-error');
+  if(!box) return;
   box.textContent = msg;
   box.style.display = 'block';
-  if (focusId) {
-    const el = document.getElementById(focusId);
-    if (el) {
-      el.focus();
-      el.style.borderColor = '#FF4081';
-      el.scrollIntoView({behavior: 'smooth', block: 'center'});
+  box.scrollIntoView({behavior:'smooth', block:'center'});
+  if(focusId) {
+    var el = document.getElementById(focusId);
+    if(el) {
+      if(el.tagName === 'INPUT' || el.tagName === 'SELECT') { el.focus(); el.style.borderColor = '#FF4081'; }
+      else { el.style.outline = '2px solid #FF4081'; }
     }
   }
 }
 
 function clearFormError() {
-  const box = document.getElementById('form-error');
-  if (box) box.style.display = 'none';
-  document.querySelectorAll('#campForm input, #campForm select').forEach(el => el.style.borderColor = '');
+  var box = document.getElementById('form-error');
+  if(box) box.style.display = 'none';
+  var inputs = document.querySelectorAll('#campForm input, #campForm select');
+  for(var i=0; i<inputs.length; i++) inputs[i].style.borderColor = '';
+  var wc1 = document.getElementById('child1_week_checks');
+  var wc2 = document.getElementById('child2_week_checks');
+  if(wc1) wc1.style.outline = '';
+  if(wc2) wc2.style.outline = '';
 }
 
 function validateForm() {
-  const required = ['child1_name','child1_class','child1_track','child1_timing','child1_weeks','parent_name','parent_wa','parent_email'];
-  if (child2Active) required.push('child2_name','child2_class','child2_track','child2_timing','child2_weeks');
+  var required = ['child1_name','child1_class','child1_track','child1_timing','parent_name','parent_wa','parent_email'];
+  if(child2Active) required = required.concat(['child2_name','child2_class','child2_track','child2_timing']);
 
-  const missing = [];
-  let firstEmptyId = null;
-  for (const id of required) {
-    const el = document.getElementById(id);
-    if (!el || !el.value.trim()) {
+  var missing = [];
+  var firstEmptyId = null;
+  for(var i=0; i<required.length; i++) {
+    var id = required[i];
+    var el = document.getElementById(id);
+    if(!el || !el.value.trim()) {
       missing.push(FIELD_LABELS[id] || id);
-      if (!firstEmptyId) firstEmptyId = id;
-      if (el) el.style.borderColor = '#FF4081';
+      if(!firstEmptyId) firstEmptyId = id;
+      if(el) el.style.borderColor = '#FF4081';
     }
   }
-  if (missing.length) {
+  if(getSelectedWeeks(1).length === 0) {
+    missing.push('Week Selection for Child 1');
+    if(!firstEmptyId) firstEmptyId = 'child1_week_checks';
+    var wc1 = document.getElementById('child1_week_checks');
+    if(wc1) wc1.style.outline = '2px solid #FF4081';
+  }
+  if(child2Active && getSelectedWeeks(2).length === 0) {
+    missing.push('Week Selection for Child 2');
+    if(!firstEmptyId) firstEmptyId = 'child2_week_checks';
+    var wc2 = document.getElementById('child2_week_checks');
+    if(wc2) wc2.style.outline = '2px solid #FF4081';
+  }
+  if(missing.length) {
     showFormError('Please fill in: ' + missing.join(', '), firstEmptyId);
     return false;
   }
 
-  const email = document.getElementById('parent_email').value.trim();
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+  var email = document.getElementById('parent_email').value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
     showFormError('Please enter a valid email address (e.g. you@example.com).', 'parent_email');
     return false;
   }
 
-  const digits = document.getElementById('parent_wa').value.replace(/\D/g, '');
-  if (digits.length < 10) {
+  var digits = document.getElementById('parent_wa').value.replace(/\D/g, '');
+  if(digits.length < 10) {
     showFormError('Please enter a valid WhatsApp number (at least 10 digits).', 'parent_wa');
     return false;
   }
@@ -1212,62 +1410,68 @@ function validateForm() {
   return true;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('#campForm input, #campForm select').forEach(el => {
-    el.addEventListener('input', clearFormError);
-    el.addEventListener('change', clearFormError);
-  });
+document.addEventListener('DOMContentLoaded', function(){
+  var inputs = document.querySelectorAll('#campForm input, #campForm select');
+  for(var i=0; i<inputs.length; i++) {
+    inputs[i].addEventListener('input', clearFormError);
+    inputs[i].addEventListener('change', clearFormError);
+  }
 });
 
 // ── SEND TO GOOGLE SHEET ──
-function sendToGoogleSheet(paymentId, amount) {
-  const w1el = document.getElementById('child1_weeks');
-  const w1text = w1el.options[w1el.selectedIndex].text;
-  const w2el = document.getElementById('child2_weeks');
-  const w2text = child2Active && w2el.value ? w2el.options[w2el.selectedIndex].text : '';
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhnDN_mSCNJ3CllQGcxukrsWacuQQliYOaCnsbVBKRPncDcd6sAV5al552CrlsWUY8/exec';
 
-  // Build combined notes for child 2
-  const child2note = child2Active ? [
-    document.getElementById('child2_name').value,
-    document.getElementById('child2_class').value,
-    document.getElementById('child2_track').value,
-    document.getElementById('child2_timing').value,
-    w2text
-  ].join(' | ') : 'N/A';
+function sendToGoogleSheet(paymentId, amount, status) {
+  var sel1 = getSelectedWeeks(1);
+  var sel2 = child2Active ? getSelectedWeeks(2) : [];
 
-  const formData = new FormData();
-  formData.append('entry.1772530642', document.getElementById('parent_name').value);
-  formData.append('entry.1112636262', document.getElementById('parent_wa').value);
-  formData.append('entry.1119779107', document.getElementById('parent_email').value);
-  formData.append('entry.496813096', document.getElementById('child1_name').value + (child2Active ? ' | Child2: ' + child2note : ''));
-  formData.append('entry.1704977529', document.getElementById('child1_class').value);
-  formData.append('entry.291538977', document.getElementById('child1_track').value);
-  formData.append('entry.1208959417', document.getElementById('child1_timing').value);
-  formData.append('entry.1263402405', w1text + ' | Payment: ₹' + amount + ' | RZP: ' + paymentId);
+  var payload = {
+    token: 'BUKMUK2026SECRET',
+    // Parent details
+    parentName: document.getElementById('parent_name').value,
+    whatsapp:   document.getElementById('parent_wa').value,
+    email:      document.getElementById('parent_email').value,
+    // Child 1
+    child1Name:   document.getElementById('child1_name').value || '',
+    child1Class:  document.getElementById('child1_class').value || '',
+    child1Track:  document.getElementById('child1_track').value || '',
+    child1Timing: document.getElementById('child1_timing').value || '',
+    child1Weeks:  getWeeksLabel(sel1),
+    // Child 2, empty strings if not active
+    child2Name:   child2Active ? (document.getElementById('child2_name').value || '') : '',
+    child2Class:  child2Active ? (document.getElementById('child2_class').value || '') : '',
+    child2Track:  child2Active ? (document.getElementById('child2_track').value || '') : '',
+    child2Timing: child2Active ? (document.getElementById('child2_timing').value || '') : '',
+    child2Weeks:  child2Active ? getWeeksLabel(sel2) : '',
+    // Payment
+    amount:    amount,
+    paymentId: paymentId,
+    status:    status
+  };
 
-  fetch('https://docs.google.com/forms/d/e/1FAIpQLScR3fhVaos4KITHhDu5cUcDfBtmBQEmGX-jANkguCRiQmxBjg/formResponse', {
+  fetch(SCRIPT_URL, {
     method: 'POST',
     mode: 'no-cors',
-    body: formData
-  }).catch(() => {});
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).catch(function(){});
 }
-
 // ── RAZORPAY PAYMENT ──
 function startPayment() {
-  if (!validateForm()) return;
+  if(!validateForm()) return;
 
-  const w1 = document.getElementById('child1_weeks').value;
-  const w2 = child2Active ? document.getElementById('child2_weeks').value : '';
-  const p1 = getWeekPrice(w1);
-  const p2 = child2Active ? getWeekPrice(w2) : 0;
-  const sibling = child2Active && p1 > 0 && p2 > 0;
-  const total = p1 + p2 - (sibling ? SIBLING_DISCOUNT : 0);
+  var sel1 = getSelectedWeeks(1);
+  var sel2 = child2Active ? getSelectedWeeks(2) : [];
+  var p1 = getWeeksPrice(sel1);
+  var p2 = getWeeksPrice(sel2);
+  var sibling = child2Active && p1 > 0 && p2 > 0;
+  var total = p1 + p2 - (sibling ? SIBLING_DISCOUNT : 0);
 
-  if (total <= 0) { alert('Please select weeks for your child.'); return; }
+  if(total <= 0) { alert('Please select at least one week.'); return; }
 
-  const options = {
+  var options = {
     key: RAZORPAY_KEY,
-    amount: total * 100, // paise
+    amount: total * 100,
     currency: 'INR',
     name: 'Bukmuk Bookverse',
     description: 'Summer Literary Camp 2026',
@@ -1279,24 +1483,28 @@ function startPayment() {
     },
     notes: {
       child1: document.getElementById('child1_name').value,
-      weeks: document.getElementById('child1_weeks').options[document.getElementById('child1_weeks').selectedIndex].text
+      weeks: getWeeksLabel(sel1)
     },
     theme: { color: '#3F23C0' },
     handler: function(response) {
-      // Payment successful
-      sendToGoogleSheet(response.razorpay_payment_id, total);
+      // Payment successful, log as PAID
+      sendToGoogleSheet(response.razorpay_payment_id, total, 'PAID');
       showSuccess(total, response.razorpay_payment_id);
     },
     modal: {
       ondismiss: function() {
-        // User closed Razorpay without paying, do nothing
+        // INTENT already logged before modal opened
       }
     }
   };
 
-  const rzp = new Razorpay(options);
+  // Log INTENT immediately, guaranteed entry before Razorpay opens
+  // If they pay, a second PAID row will also be added
+  sendToGoogleSheet('NOT-PAID', total, 'INTENT');
+
+  var rzp = new Razorpay(options);
   rzp.on('payment.failed', function(response) {
-    alert('Payment failed. Please try again. Error: ' + response.error.description);
+    alert('Payment failed. Please try again.');
   });
   rzp.open();
 }
@@ -1310,7 +1518,7 @@ function showSuccess(amount, paymentId) {
   form.innerHTML = '<div style="text-align:center;padding:32px 16px;">'
     + '<div style="font-size:3rem;margin-bottom:16px;">&#127881;</div>'
     + '<h3 style="font-family:Nunito,sans-serif;font-size:1.4rem;font-weight:900;color:#03314A;margin-bottom:10px;">You are registered!</h3>'
-    + '<p style="font-size:0.92rem;color:#555;line-height:1.7;margin-bottom:16px;">Payment of <strong>' + amtFormatted + '</strong> confirmed.<br>The Bukmuk team will reach out within 24 hours.</p>'
+    + '<p style="font-size:0.92rem;color:#555;line-height:1.7;margin-bottom:16px;">Payment of <strong>' + amtFormatted + '</strong> confirmed.<br>The Bukmuk team will reach out within 24 hours with batch details.</p>'
     + '<div style="background:#EEF8A7;border-radius:8px;padding:12px 16px;font-size:0.78rem;color:#3F23C0;font-weight:700;">Payment ID: ' + paymentId + '</div>'
     + '</div>';
 }
