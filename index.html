@@ -7,20 +7,20 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap');
 
-:root {
-  --purple: #3F23C0
-  --purple-dark: #2B128A;
-  --purple-mid: #4E30D4;
-  --lime: #C8E600;
-  --lime-bright: #D5F223;
-  --lime-bg: #EEF8A7;
-  --lime-pale: #F5FDD0;
-  --pink: #FF4081;
-  --navy: #03314A;
-  --white: #FFFFFF;
-  --off: #FAFFF0;
-  --text: #1c1c2e;
-  --muted: #5a5a6e;
+:root{
+  --purple:#3F23C0;
+  --purple-dark:#2B128A;
+  --purple-mid:#4E30D4;
+  --lime:#C8E600;
+  --lime-bright:#D5F223;
+  --lime-bg:#EEF8A7;
+  --lime-pale:#F5FDD0;
+  --pink:#FF4081;
+  --navy:#03314A;
+  --white:#FFFFFF;
+  --off:#FAFFF0;
+  --text:#1c1c2e;
+  --muted:#5a5a6e;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -88,8 +88,8 @@ nav{
   color:rgba(255,255,255,0.78);
   line-height:1.75;max-width:580px;margin:20px 0 32px;font-weight:600;
 }
-.hero-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;}
-.pill{padding:7px 15px;border-radius:4px;font-weight:700;font-size:0.82rem;}
+.hero-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;align-items:center;}
+.pill{padding:7px 15px;border-radius:4px;font-weight:700;font-size:0.82rem;line-height:1.35;display:inline-flex;align-items:center;}
 .p-lime{background:var(--lime);color:var(--navy);}
 .p-ghost{background:rgba(255,255,255,0.12);color:white;border:1px solid rgba(255,255,255,0.25);}
 .p-pink{background:var(--pink);color:white;}
@@ -136,7 +136,7 @@ nav{
 /* ─── TRACKS ─── */
 .tracks-bg{background:var(--lime-bg);border-top:3px solid #b8d000;border-bottom:3px solid #b8d000;}
 .tracks-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px;}
-.track-card{border-radius:14px;padding:0;overflow:hidden;border:2.5px solid;}
+.track-card{border-radius:14px;padding:0;overflow:hidden;border:2.5px solid;display:flex;flex-direction:column;}
 .tc-junior{border-color:var(--purple);}
 .tc-senior{border-color:var(--navy);}
 .track-header{padding:22px 28px 18px;}
@@ -145,7 +145,7 @@ nav{
 .track-badge{display:inline-block;background:var(--lime);color:var(--navy);padding:3px 14px;border-radius:3px;font-size:0.7rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
 .track-header h3{font-size:1.5rem;font-weight:900;color:white;margin-bottom:4px;}
 .track-header .tsub{font-size:0.83rem;color:rgba(255,255,255,0.7);font-weight:600;}
-.track-body{padding:24px 28px;background:white;}
+.track-body{padding:24px 28px;background:white;flex:1;}
 .track-time{display:inline-flex;align-items:center;gap:8px;background:var(--lime-bg);padding:7px 14px;border-radius:5px;font-size:0.82rem;font-weight:800;color:var(--navy);margin-bottom:18px;border:1.5px solid #b8d000;}
 .track-body p.tdesc{font-size:0.88rem;color:var(--muted);line-height:1.65;margin-bottom:16px;}
 
@@ -288,15 +288,20 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.35;transform:scale(1.6);}}
 
 /* ─── ANIMATIONS ─── */
-.fade-up{opacity:0;transform:translateY(26px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.fade-up.visible{opacity:1;transform:none;}
+.fade-up{opacity:1;transform:none;}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:720px){
   nav{padding:10px 18px;}
   .nav-links{display:none;}
-  .hero,.section-wrap,.pricing-inner,.faq-inner,.reg-inner
-  .hero{padding-top:90px;}
+  .hero{padding:100px 22px 56px;min-height:auto;}
+  .section-wrap,.pricing-inner,.faq-inner,.reg-inner{padding:60px 22px;}
+  .hero-pills{row-gap:6px;column-gap:8px;margin-bottom:22px;}
+  .pill{font-size:0.78rem;padding:5px 11px;line-height:1.35;}
+  .hero-btns{gap:10px;}
+  .btn-lime,.btn-outline-white{padding:13px 22px;font-size:0.92rem;}
+  .stat-strip{display:grid;grid-template-columns:1fr 1fr;gap:22px 16px;padding:24px 18px;}
+  .stat-n{font-size:1.8rem;}
   .prog-grid,.tracks-grid,.form-row,.combo-box{grid-template-columns:1fr;}
   .combo-price{text-align:left;}
   .impact-grid{grid-template-columns:1fr 1fr;}
@@ -333,7 +338,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
       <span class="italic">Summer</span>
       <span class="sub">Literary Camp 2026</span>
     </h1>
-    <p class="hero-desc">A live, online literary camp where children don't just read — they speak, write, debate, and perform. Every week a new skill. Every session a real outcome. Bukmuk Bookverse brings the classroom to life, five days a week.</p>
+    <p class="hero-desc">A live, online literary camp where children don't just read, they speak, write, debate, and perform. Every week a new skill. Every session a real outcome. Bukmuk Bookverse brings the classroom to life, five days a week.</p>
     <div class="hero-pills">
       <span class="pill p-lime">💻 Live on Zoom</span>
       <span class="pill p-ghost">Class 1–8</span>
@@ -365,24 +370,24 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
   <h2 class="h2">What the Bukmuk<br><em>Literary Camp actually does</em></h2>
   <div class="prog-grid">
     <div class="prog-body">
-      <p>Most summer programmes keep children busy. This one makes them <strong>better communicators</strong> — in ways that show up in school, in exams, and in life. The Bukmuk Summer Literary Camp runs 5 weeks of live, instructor-led sessions built around a single belief: that the ability to express yourself clearly is the most transferable skill a child can develop.</p>
-      <p>Every session is 45–60 minutes of real activity — not passive watching. Children debate, write stories, give speeches, act out scenes, analyse situations, and share their thinking with peers. The batch stays small (15 kids maximum) so every child is seen, heard, and pushed.</p>
-      <p>The two tracks — <strong>Junior (Age 7–10)</strong> and <strong>Senior (Age 10–16)</strong> — are structured differently on purpose. Junior builds creative confidence through storytelling, roleplay, and expression. Senior builds communication depth through debate, persuasion, analytical writing, and leadership voice. Both tracks run Monday through Friday with morning and evening batch options.</p>
+      <p>Most summer programmes keep children busy. This one makes them <strong>better communicators</strong>, in ways that show up in school, in exams, and in life. The Bukmuk Summer Literary Camp runs 5 weeks of live, instructor-led sessions built around a single belief: that the ability to express yourself clearly is the most transferable skill a child can develop.</p>
+      <p>Every session is 45–60 minutes of real activity, not passive watching. Children debate, write stories, give speeches, act out scenes, analyse situations, and share their thinking with peers. The batch stays small (15 kids maximum) so every child is seen, heard, and pushed.</p>
+      <p>The two tracks, <strong>Junior (Age 7–10)</strong> and <strong>Senior (Age 10–16)</strong>, are structured differently on purpose. Junior builds creative confidence through storytelling, roleplay, and expression. Senior builds communication depth through debate, persuasion, analytical writing, and leadership voice. Both tracks run Monday through Friday with morning and evening batch options.</p>
       <ul class="outcome-list">
-        <li>Trained Bukmuk instructors — not freelancers, not automated content</li>
-        <li>Live, real-time interaction — every session happens on Zoom with full camera-on energy</li>
+        <li>Trained Bukmuk instructors: not freelancers, not automated content</li>
+        <li>Live, real-time interaction: every session happens on Zoom with full camera-on energy</li>
         <li>Structured week-by-week themes with clear learning goals per session</li>
-        <li>Written and spoken outputs — children leave with something they made</li>
-        <li>Week 5 Showcase — a live performance for family that the whole camp builds toward</li>
+        <li>Written and spoken outputs: children leave with something they made</li>
+        <li>Week 5 Showcase: a live performance for family that the whole camp builds toward</li>
       </ul>
     </div>
     <div>
       <div class="outcome-box">
         <h3>What children gain</h3>
         <ul class="outcome-list">
-          <li>Confidence to speak in front of people — classrooms, assemblies, interviews</li>
+          <li>Confidence to speak in front of people: classrooms, assemblies, interviews</li>
           <li>Ability to structure an argument and defend it calmly</li>
-          <li>Creative writing skills — plot, character, emotion, narrative arc</li>
+          <li>Creative writing skills: plot, character, emotion, narrative arc</li>
           <li>Vocabulary growth through active use, not rote memorisation</li>
           <li>Emotional intelligence through empathy-based storytelling activities</li>
           <li>Critical thinking through debate, current affairs, and two-viewpoint writing</li>
@@ -390,7 +395,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
       </div>
       <div class="impact-grid">
         <div class="impact-card"><span class="impact-icon">🎓</span><h4>Academic edge</h4><p>Better writing = better answers in English, SST, and even Science papers</p></div>
-        <div class="impact-card"><span class="impact-icon">🗣️</span><h4>Speaking confidence</h4><p>Class participation, elocution, group discussions — all become natural</p></div>
+        <div class="impact-card"><span class="impact-icon">🗣️</span><h4>Speaking confidence</h4><p>Class participation, elocution, group discussions, all become natural</p></div>
         <div class="impact-card"><span class="impact-icon">🧠</span><h4>Structured thinking</h4><p>Debate and analysis training builds logical thinking across all subjects</p></div>
         <div class="impact-card"><span class="impact-icon">❤️</span><h4>Emotional literacy</h4><p>Children learn to name, understand, and express what they feel</p></div>
       </div>
@@ -404,7 +409,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 <div class="section-wrap fade-up">
   <span class="tag">Two tracks</span>
   <h2 class="h2">Different by design,<br><em>not just by age</em></h2>
-  <p class="lead">Junior and Senior tracks aren't just shorter and longer sessions — the entire learning philosophy is different. One builds creative confidence. The other builds communication precision.</p>
+  <p class="lead">Junior and Senior tracks aren't just shorter and longer sessions, the entire learning philosophy is different. One builds creative confidence. The other builds communication precision.</p>
   <div class="tracks-grid">
     <div class="track-card tc-junior">
       <div class="track-header">
@@ -414,12 +419,12 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
       </div>
       <div class="track-body">
         <div class="track-time">🌅 11am–12 noon &nbsp;|&nbsp; 🌆 4:30pm–5:30pm</div>
-        <p class="tdesc">Designed around play-based learning — children absorb language skills through imagination rather than instruction. Each week is self-contained, so joining any week works without needing the previous ones.</p>
+        <p class="tdesc">Designed around play-based learning, children absorb language skills through imagination rather than instruction. Each week is self-contained, so joining any week works without needing the previous ones.</p>
         <ul class="outcome-list">
           <li>Interactive read-alouds, dramatisation, and roleplay</li>
           <li>Drawing and storytelling combined (Draw & Tell format)</li>
           <li>Art & craft activities tied to weekly themes</li>
-          <li>Fun speaking games — "Would You Rather", Telephone Conversations, Pack Your Bag</li>
+          <li>Fun speaking games: "Would You Rather", Telephone Conversations, Pack Your Bag</li>
           <li>Week 5 Showcase: Story presentation + performance</li>
         </ul>
       </div>
@@ -432,9 +437,9 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
       </div>
       <div class="track-body">
         <div class="track-time">🌅 12:30pm–1:30pm &nbsp;|&nbsp; 🌆 3:00pm–4:00pm</div>
-        <p class="tdesc">Built for children who need to sharpen how they think and communicate. Each week builds on the previous one — moving from basic expression through to leadership voice and persuasive performance.</p>
+        <p class="tdesc">Built for children who need to sharpen how they think and communicate. Each week builds on the previous one, moving from basic expression through to leadership voice and persuasive performance.</p>
         <ul class="outcome-list">
-          <li>Structured debate formats — mini debates, JAM sessions, formal debates</li>
+          <li>Structured debate formats: mini debates, JAM sessions, formal debates</li>
           <li>Persuasive and analytical writing tied to real-world topics</li>
           <li>Newspaper reading, current affairs discussions, two-viewpoint writing</li>
           <li>Mock interviews, elevator pitches, extempore speaking</li>
@@ -469,11 +474,11 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         </div>
         <div class="wk-body">
           <ul>
-            <li>Storytelling — interactive read-aloud with animal voices</li>
-            <li>Drama — enact animal situations on screen</li>
-            <li>Draw & Tell — draw your favourite animal and present it</li>
-            <li>Animal Craft — create a simple animal face/mask</li>
-            <li>Would You Rather (Animal Edition) — speaking activity with choices</li>
+            <li>Storytelling: interactive read-aloud with animal voices</li>
+            <li>Drama: enact animal situations on screen</li>
+            <li>Draw & Tell: draw your favourite animal and present it</li>
+            <li>Animal Craft: create a simple animal face/mask</li>
+            <li>Would You Rather (Animal Edition): speaking activity with choices</li>
           </ul>
           <div class="wk-outcome"><span>Outcome:</span> Builds creativity and confidence through storytelling, roleplay, and fun expression around the natural world.</div>
         </div>
@@ -486,12 +491,12 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         </div>
         <div class="wk-body">
           <ul>
-            <li>Storytelling — stories based on family and everyday life</li>
-            <li>Show & Tell — talk about a family member or favourite person</li>
-            <li>Role Play — act out community helpers (doctor, teacher, etc.)</li>
+            <li>Storytelling: stories based on family and everyday life</li>
+            <li>Show & Tell: talk about a family member or favourite person</li>
+            <li>Role Play: act out community helpers (doctor, teacher, etc.)</li>
             <li>Art & Craft activity</li>
-            <li>Telephone Conversations — simple structured dialogues</li>
-            <li>Problem Solving — "What would you do if…?" situations</li>
+            <li>Telephone Conversations: simple structured dialogues</li>
+            <li>Problem Solving: "What would you do if…?" situations</li>
           </ul>
           <div class="wk-outcome"><span>Outcome:</span> Develops communication and social awareness by helping children express relationships and everyday interactions.</div>
         </div>
@@ -504,11 +509,11 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         </div>
         <div class="wk-body">
           <ul>
-            <li>Adventure Stories — engaging storytelling with exciting plots</li>
-            <li>Travel Speech — speak about a place they've visited or want to visit</li>
-            <li>Story Writing — create their own adventure story</li>
-            <li>Pack Your Bag Game — kids choose 5 items and explain why</li>
-            <li>Adventure Role Play — act out jungle, treasure hunt, airport scenes</li>
+            <li>Adventure Stories: engaging storytelling with exciting plots</li>
+            <li>Travel Speech: speak about a place they've visited or want to visit</li>
+            <li>Story Writing: create their own adventure story</li>
+            <li>Pack Your Bag Game: kids choose 5 items and explain why</li>
+            <li>Adventure Role Play: act out jungle, treasure hunt, airport scenes</li>
           </ul>
           <div class="wk-outcome"><span>Outcome:</span> Enhances imagination and speaking skills as children explore new places and share exciting experiences.</div>
         </div>
@@ -521,11 +526,11 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         </div>
         <div class="wk-body">
           <ul>
-            <li>Feeling Story — stories focused on different emotions</li>
-            <li>Speaking — talk about a time they felt a certain way</li>
-            <li>Story Writing — write a short story based on an emotion</li>
-            <li>Emotion Diary — reflect and write/draw one feeling with reason</li>
-            <li>Picture Interpretation — what is the character feeling and why?</li>
+            <li>Feeling Story: stories focused on different emotions</li>
+            <li>Speaking: talk about a time they felt a certain way</li>
+            <li>Story Writing: write a short story based on an emotion</li>
+            <li>Emotion Diary: reflect and write/draw one feeling with reason</li>
+            <li>Picture Interpretation: what is the character feeling and why?</li>
           </ul>
           <div class="wk-outcome"><span>Outcome:</span> Strengthens emotional intelligence by teaching children to understand and express their feelings confidently.</div>
         </div>
@@ -538,11 +543,11 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         </div>
         <div class="wk-body">
           <ul>
-            <li>Under the Ocean — world-building and descriptive storytelling</li>
-            <li>Learning about Oceanographers — real-world connection</li>
+            <li>Under the Ocean: world-building and descriptive storytelling</li>
+            <li>Learning about Oceanographers: real-world connection</li>
             <li>Craft Activity tied to ocean theme</li>
-            <li>Twist the Tale — reimagine a known story with a new ending</li>
-            <li>Showcase — Story presentation: Twist the Tale (Finding Nemo)</li>
+            <li>Twist the Tale: reimagine a known story with a new ending</li>
+            <li>Showcase: Story presentation: Twist the Tale (Finding Nemo)</li>
           </ul>
           <div class="wk-outcome"><span>Outcome:</span> Encourages curiosity and creative expression while learning about the ocean through storytelling and a final live showcase.</div>
         </div>
@@ -562,11 +567,11 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         </div>
         <div class="wk-body">
           <ul>
-            <li>Debate Arena — structure arguments and participate in mini debates</li>
-            <li>Extempore Speaking — speak on random topics with quick thinking</li>
-            <li>Character Building — confidence and personality through role-play</li>
-            <li>Book Talk — share opinions by discussing stories and speaking as characters</li>
-            <li>Elevator Pitch — present yourself or an idea clearly and confidently</li>
+            <li>Debate Arena: structure arguments and participate in mini debates</li>
+            <li>Extempore Speaking: speak on random topics with quick thinking</li>
+            <li>Character Building: confidence and personality through role-play</li>
+            <li>Book Talk: share opinions by discussing stories and speaking as characters</li>
+            <li>Elevator Pitch: present yourself or an idea clearly and confidently</li>
           </ul>
           <div class="wk-outcome"><span>Outcome:</span> Builds strong speaking foundations through debates, book talks, and confident self-expression.</div>
         </div>
@@ -579,11 +584,11 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         </div>
         <div class="wk-body">
           <ul>
-            <li>Group Discussion — share, listen, respond, and build on ideas</li>
-            <li>Understanding Persuasion — influence others using clear thinking</li>
-            <li>Reason and Example — support ideas with logical reasoning</li>
-            <li>Convincing Speaking Practice — express opinions clearly and calmly</li>
-            <li>Agree/Disagree Challenge — take a stand and defend it with balance</li>
+            <li>Group Discussion: share, listen, respond, and build on ideas</li>
+            <li>Understanding Persuasion: influence others using clear thinking</li>
+            <li>Reason and Example: support ideas with logical reasoning</li>
+            <li>Convincing Speaking Practice: express opinions clearly and calmly</li>
+            <li>Agree/Disagree Challenge: take a stand and defend it with balance</li>
           </ul>
           <div class="wk-outcome"><span>Outcome:</span> Teaches students to express opinions logically and influence others using clear reasoning and examples.</div>
         </div>
@@ -596,11 +601,11 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         </div>
         <div class="wk-body">
           <ul>
-            <li>Debate on Current Situations — real-world events, different perspectives</li>
-            <li>JAM Session — speak spontaneously for one minute on current topics</li>
-            <li>Descriptive Writing — detailed, expressive pieces based on real events</li>
-            <li>Newspaper Reading & Analysis — break down key points and facts</li>
-            <li>Two-Viewpoint Story Writing — write stories showing two perspectives</li>
+            <li>Debate on Current Situations: real-world events, different perspectives</li>
+            <li>JAM Session: speak spontaneously for one minute on current topics</li>
+            <li>Descriptive Writing: detailed, expressive pieces based on real events</li>
+            <li>Newspaper Reading & Analysis: break down key points and facts</li>
+            <li>Two-Viewpoint Story Writing: write stories showing two perspectives</li>
           </ul>
           <div class="wk-outcome"><span>Outcome:</span> Develops awareness and critical thinking by engaging with real-world topics and discussions.</div>
         </div>
@@ -613,11 +618,11 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         </div>
         <div class="wk-body">
           <ul>
-            <li>Formal Debate — structured argument, rebuttal, and team debating</li>
-            <li>Mock Interviews — answer confidently in real-life interview situations</li>
-            <li>Speech Delivery (Leadership Topics) — responsibility and influence themes</li>
-            <li>Opinion-Based JAM Sessions — speak instantly with clarity</li>
-            <li>Persuasive Speaking — convince an audience using logic and emotion</li>
+            <li>Formal Debate: structured argument, rebuttal, and team debating</li>
+            <li>Mock Interviews: answer confidently in real-life interview situations</li>
+            <li>Speech Delivery (Leadership Topics): responsibility and influence themes</li>
+            <li>Opinion-Based JAM Sessions: speak instantly with clarity</li>
+            <li>Persuasive Speaking: convince an audience using logic and emotion</li>
           </ul>
           <div class="wk-outcome"><span>Outcome:</span> Strengthens leadership voice by helping students articulate viewpoints confidently and persuasively.</div>
         </div>
@@ -630,11 +635,11 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         </div>
         <div class="wk-body">
           <ul>
-            <li>Storytelling & Impact Speaking — engaging stories with emotion and message</li>
-            <li>Extempore with a Twist — speak on the spot with fun role/emotion challenges</li>
-            <li>Creative Speaking Formats — press conferences, role plays, pitching ideas</li>
-            <li>Showcase Preparation — select and polish your best performance piece</li>
-            <li>Final Showcase — speeches, activities, and live performances</li>
+            <li>Storytelling & Impact Speaking: engaging stories with emotion and message</li>
+            <li>Extempore with a Twist: speak on the spot with fun role/emotion challenges</li>
+            <li>Creative Speaking Formats: press conferences, role plays, pitching ideas</li>
+            <li>Showcase Preparation: select and polish your best performance piece</li>
+            <li>Final Showcase: speeches, activities, and live performances</li>
           </ul>
           <div class="wk-outcome"><span>Outcome:</span> Refines delivery through structured practice and feedback. Boosts confidence through a polished final performance.</div>
         </div>
@@ -651,7 +656,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 <div class="pricing-inner fade-up">
   <span class="tag">Enrollment & pricing</span>
   <h2 class="h2">Every week is open.<br><em>Pick one or all five.</em></h2>
-  <p class="lead">Each week is a self-contained theme. Enrol for a single week to try it, bundle two or more, or lock in all five and get the best rate — plus Showcase access and Anthology eligibility.</p>
+  <p class="lead">Each week is a self-contained theme. Enrol for a single week to try it, bundle two or more, or lock in all five and get the best rate, plus Showcase access and Anthology eligibility.</p>
 
   <!-- JUNIOR PRICING -->
   <div class="track-pricing">
@@ -780,7 +785,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
     <div class="combo-icon">👨‍👧‍👦</div>
     <div class="combo-content">
       <h3>Sibling Bundle</h3>
-      <p>Two kids. Two tracks. One family discount. Register one child on Junior and one on Senior — or any two kids on the same track — and get ₹1,500 off the combined total. Contact the Bukmuk team to apply the discount after registering both.</p>
+      <p>Two kids. Two tracks. One family discount. Register one child on Junior and one on Senior, or any two kids on the same track, and get ₹1,500 off the combined total. Contact the Bukmuk team to apply the discount after registering both.</p>
     </div>
     <div class="combo-price">
       <span class="amt">₹1,500</span>
@@ -808,7 +813,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
     <div class="oc-card">
       <span class="oc-icon">🎤</span>
       <h3>Classroom and stage confidence</h3>
-      <p>Regular speaking practice in a safe group removes the anxiety of being called on in class. Children stop dreading oral exams, elocution competitions, and school plays — they look forward to them.</p>
+      <p>Regular speaking practice in a safe group removes the anxiety of being called on in class. Children stop dreading oral exams, elocution competitions, and school plays, they look forward to them.</p>
       <span class="oc-tag">Confidence</span>
     </div>
     <div class="oc-card">
@@ -832,7 +837,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
     <div class="oc-card">
       <span class="oc-icon">🏅</span>
       <h3>A real published piece</h3>
-      <p>Full-camp students are eligible for the Bukmuk Summer Anthology. The best stories and speeches from the camp are selected, edited, and published. Your child's name in print is not a certificate — it's a credential.</p>
+      <p>Full-camp students are eligible for the Bukmuk Summer Anthology. The best stories and speeches from the camp are selected, edited, and published. Your child's name in print is not a certificate, it's a credential.</p>
       <span class="oc-tag">Anthology</span>
     </div>
   </div>
@@ -852,7 +857,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
     </div>
     <div class="testi-card">
       <div class="stars">★★★★★</div>
-      <p>"The batch size is what makes it work. The instructor actually knew what my son struggled with and pushed him on exactly that — not a generic script."</p>
+      <p>"The batch size is what makes it work. The instructor actually knew what my son struggled with and pushed him on exactly that, not a generic script."</p>
       <div class="testi-author"><div class="tav">R</div><div><div class="tname">Rahul Mehta</div><div class="trole">Parent · Class 6 · Mumbai</div></div></div>
     </div>
     <div class="testi-card">
@@ -870,19 +875,19 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
   <span class="tag">Questions</span>
   <h2 class="h2" style="margin-bottom:28px;">Things parents<br><em>ask us before registering</em></h2>
 
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can we join only one week without committing to all five?<em>▼</em></div><div class="faq-a">Yes — that's exactly how it's designed. Each week is a complete, standalone theme. Start with one, see how your child responds, and add more from there. The only exception is Week 5 Showcase, which requires prior participation.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can we join only one week without committing to all five?<em>▼</em></div><div class="faq-a">Yes, that's exactly how it's designed. Each week is a complete, standalone theme. Start with one, see how your child responds, and add more from there. The only exception is Week 5 Showcase, which requires prior participation.</div></div>
 
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Which track is right for my child?<em>▼</em></div><div class="faq-a">Junior (Age 7–10) is built on creative expression — storytelling, roleplay, drama, drawing, and imaginative games. Senior (Age 10–16) builds communication and critical thinking — debate, writing, persuasion, and current affairs. If your child is 10, either track may suit depending on temperament — reach out and we'll help you choose.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Which track is right for my child?<em>▼</em></div><div class="faq-a">Junior (Age 7–10) is built on creative expression, storytelling, roleplay, drama, drawing, and imaginative games. Senior (Age 10–16) builds communication and critical thinking, debate, writing, persuasion, and current affairs. If your child is 10, either track may suit depending on temperament, reach out and we'll help you choose.</div></div>
 
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">My child has never done public speaking. Is this appropriate?<em>▼</em></div><div class="faq-a">This is built for exactly those children. The activities are carefully sequenced to build confidence gradually — children are never put on the spot before they're ready. The small batch means instructors know which children need more encouragement and give it without making it obvious.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">My child has never done public speaking. Is this appropriate?<em>▼</em></div><div class="faq-a">This is built for exactly those children. The activities are carefully sequenced to build confidence gradually, children are never put on the spot before they're ready. The small batch means instructors know which children need more encouragement and give it without making it obvious.</div></div>
 
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What if we miss a session during the week?<em>▼</em></div><div class="faq-a">Junior track sessions are standalone within each week, so missing one day doesn't affect the rest. Senior track sessions build on each other through the week — we'll share a short session recap so your child can pick up where things left off.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What if we miss a session during the week?<em>▼</em></div><div class="faq-a">Junior track sessions are standalone within each week, so missing one day doesn't affect the rest. Senior track sessions build on each other through the week, we'll share a short session recap so your child can pick up where things left off.</div></div>
 
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How is this different from a school English class or tuition?<em>▼</em></div><div class="faq-a">No textbooks, no marks, no homework. The goal is genuine expression in a low-pressure setting. Children speak because they want to, not because they're being graded. The skills transfer back into school — but that's a by-product, not the pitch.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How is this different from a school English class or tuition?<em>▼</em></div><div class="faq-a">No textbooks, no marks, no homework. The goal is genuine expression in a low-pressure setting. Children speak because they want to, not because they're being graded. The skills transfer back into school, but that's a by-product, not the pitch.</div></div>
 
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What do we need to attend?<em>▼</em></div><div class="faq-a">Any device with Zoom — laptop, tablet, or phone. Stable internet and a working camera. A quiet space where your child can speak without distraction. Some Junior sessions involve a craft activity, for which a simple materials list will be shared in advance.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What do we need to attend?<em>▼</em></div><div class="faq-a">Any device with Zoom, laptop, tablet, or phone. Stable internet and a working camera. A quiet space where your child can speak without distraction. Some Junior sessions involve a craft activity, for which a simple materials list will be shared in advance.</div></div>
 
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">When do sessions happen? Can we choose our batch?<em>▼</em></div><div class="faq-a">Junior: 11am–12noon (morning) or 4:30–5:30pm (evening). Senior: 12:30–1:30pm (morning) or 3–4pm (evening). You can state your preferred batch at registration — we'll confirm based on availability.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">When do sessions happen? Can we choose our batch?<em>▼</em></div><div class="faq-a">Junior: 11am–12noon (morning) or 4:30–5:30pm (evening). Senior: 12:30–1:30pm (morning) or 3–4pm (evening). You can state your preferred batch at registration, we'll confirm based on availability.</div></div>
 
 </div>
 </div>
@@ -905,7 +910,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
       <div id="sibling-badge" style="display:none;margin-top:8px;background:var(--purple);color:white;padding:4px 12px;border-radius:4px;font-size:0.75rem;font-weight:800;width:fit-content;">🎉 Sibling discount ₹1,500 applied</div>
     </div>
 
-    <div class="urgency">⚡ <span>Batches filling up</span> — confirmed on a first-registered basis</div>
+    <div class="urgency">⚡ <span>Batches filling up</span>, confirmed on a first-registered basis</div>
 
     <form id="campForm"
       action="https://docs.google.com/forms/d/e/1FAIpQLScR3fhVaos4KITHhDu5cUcDfBtmBQEmGX-jANkguCRiQmxBjg/formResponse"
@@ -1025,6 +1030,9 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         <div class="fg"><label>Email Address *</label><input type="email" id="parent_email" name="entry.1119779107" placeholder="you@email.com" required></div>
       </div>
 
+      <!-- VALIDATION ERROR -->
+      <div id="form-error" role="alert" aria-live="polite" style="display:none;background:#FFE5EC;border:2px solid #FF4081;color:#B0003A;border-radius:8px;padding:12px 14px;margin-bottom:14px;font-size:0.88rem;font-weight:700;line-height:1.5;"></div>
+
       <!-- PAY BUTTON -->
       <button type="button" id="pay-btn" onclick="startPayment()" class="form-submit">
         Reserve &amp; Pay Now →
@@ -1058,7 +1066,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 </a>
 
 <script>
-// ── RAZORPAY KEY — replace with your live key before deploying ──
+// ── RAZORPAY KEY, replace with your live key before deploying ──
 const RAZORPAY_KEY = 'rzp_live_RDqX2u6rbGMpdM';
 
 // ── PRICING ──
@@ -1141,31 +1149,75 @@ function updatePrice() {
 }
 
 // ── FORM VALIDATION ──
+const FIELD_LABELS = {
+  child1_name: "Child's Name", child1_class: "Child's Class", child1_track: 'Track',
+  child1_timing: 'Batch Timing', child1_weeks: 'Week Selection',
+  child2_name: "Child 2 Name", child2_class: "Child 2 Class", child2_track: 'Child 2 Track',
+  child2_timing: 'Child 2 Timing', child2_weeks: 'Child 2 Weeks',
+  parent_name: "Parent's Name", parent_wa: 'WhatsApp Number', parent_email: 'Email Address'
+};
+
+function showFormError(msg, focusId) {
+  const box = document.getElementById('form-error');
+  box.textContent = msg;
+  box.style.display = 'block';
+  if (focusId) {
+    const el = document.getElementById(focusId);
+    if (el) {
+      el.focus();
+      el.style.borderColor = '#FF4081';
+      el.scrollIntoView({behavior: 'smooth', block: 'center'});
+    }
+  }
+}
+
+function clearFormError() {
+  const box = document.getElementById('form-error');
+  if (box) box.style.display = 'none';
+  document.querySelectorAll('#campForm input, #campForm select').forEach(el => el.style.borderColor = '');
+}
+
 function validateForm() {
   const required = ['child1_name','child1_class','child1_track','child1_timing','child1_weeks','parent_name','parent_wa','parent_email'];
+  if (child2Active) required.push('child2_name','child2_class','child2_track','child2_timing','child2_weeks');
+
+  const missing = [];
+  let firstEmptyId = null;
   for (const id of required) {
     const el = document.getElementById(id);
     if (!el || !el.value.trim()) {
-      el.focus();
-      el.style.borderColor = '#FF4081';
-      setTimeout(() => el.style.borderColor = '', 2000);
-      return false;
+      missing.push(FIELD_LABELS[id] || id);
+      if (!firstEmptyId) firstEmptyId = id;
+      if (el) el.style.borderColor = '#FF4081';
     }
   }
-  if (child2Active) {
-    const c2required = ['child2_name','child2_class','child2_track','child2_timing','child2_weeks'];
-    for (const id of c2required) {
-      const el = document.getElementById(id);
-      if (!el || !el.value.trim()) {
-        el.focus();
-        el.style.borderColor = '#FF4081';
-        setTimeout(() => el.style.borderColor = '', 2000);
-        return false;
-      }
-    }
+  if (missing.length) {
+    showFormError('Please fill in: ' + missing.join(', '), firstEmptyId);
+    return false;
   }
+
+  const email = document.getElementById('parent_email').value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+    showFormError('Please enter a valid email address (e.g. you@example.com).', 'parent_email');
+    return false;
+  }
+
+  const digits = document.getElementById('parent_wa').value.replace(/\D/g, '');
+  if (digits.length < 10) {
+    showFormError('Please enter a valid WhatsApp number (at least 10 digits).', 'parent_wa');
+    return false;
+  }
+
+  clearFormError();
   return true;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('#campForm input, #campForm select').forEach(el => {
+    el.addEventListener('input', clearFormError);
+    el.addEventListener('change', clearFormError);
+  });
+});
 
 // ── SEND TO GOOGLE SHEET ──
 function sendToGoogleSheet(paymentId, amount) {
@@ -1237,7 +1289,7 @@ function startPayment() {
     },
     modal: {
       ondismiss: function() {
-        // User closed Razorpay without paying — do nothing
+        // User closed Razorpay without paying, do nothing
       }
     }
   };
@@ -1251,17 +1303,16 @@ function startPayment() {
 
 // ── SUCCESS STATE ──
 function showSuccess(amount, paymentId) {
-  const form = document.getElementById('campForm');
-  const summary = document.getElementById('price-summary');
-  summary.style.display = 'none';
-  form.innerHTML = \`
-    <div style="text-align:center;padding:32px 16px;">
-      <div style="font-size:3rem;margin-bottom:16px;">🎉</div>
-      <h3 style="font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:900;color:var(--navy);margin-bottom:10px;">You're registered!</h3>
-      <p style="font-size:0.92rem;color:#555;line-height:1.7;margin-bottom:16px;">Payment of <strong>₹\${amount.toLocaleString('en-IN')}</strong> confirmed.<br>The Bukmuk team will reach out within 24 hours with batch details.</p>
-      <div style="background:var(--lime-bg);border-radius:8px;padding:12px 16px;font-size:0.78rem;color:var(--purple);font-weight:700;">Payment ID: \${paymentId}</div>
-    </div>
-  \`;
+  var form = document.getElementById('campForm');
+  var summary = document.getElementById('price-summary');
+  if(summary) summary.style.display = 'none';
+  var amtFormatted = '\u20b9' + amount.toLocaleString('en-IN');
+  form.innerHTML = '<div style="text-align:center;padding:32px 16px;">'
+    + '<div style="font-size:3rem;margin-bottom:16px;">&#127881;</div>'
+    + '<h3 style="font-family:Nunito,sans-serif;font-size:1.4rem;font-weight:900;color:#03314A;margin-bottom:10px;">You are registered!</h3>'
+    + '<p style="font-size:0.92rem;color:#555;line-height:1.7;margin-bottom:16px;">Payment of <strong>' + amtFormatted + '</strong> confirmed.<br>The Bukmuk team will reach out within 24 hours.</p>'
+    + '<div style="background:#EEF8A7;border-radius:8px;padding:12px 16px;font-size:0.78rem;color:#3F23C0;font-weight:700;">Payment ID: ' + paymentId + '</div>'
+    + '</div>';
 }
 </script>
 </body>
