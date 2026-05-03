@@ -56,7 +56,7 @@ nav{
   background:var(--purple);
   min-height:100vh;
   padding:110px 48px 70px;
-  display:flex;align-items:center;
+  display:flex;align-items:center;justify-content:center;gap:48px;
   position:relative;overflow:hidden;
 }
 .hero-bg-text{
@@ -69,7 +69,33 @@ nav{
 .hero-blob2{position:absolute;bottom:-60px;left:-60px;width:320px;height:320px;background:var(--pink);opacity:0.09;border-radius:40% 60% 70% 30%;animation:blob 11s ease-in-out infinite reverse;}
 @keyframes blob{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;}50%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%;}}
 
-.hero-inner{max-width:760px;position:relative;z-index:2;}
+.hero-inner{flex:1 1 0;max-width:680px;position:relative;z-index:2;}
+
+/* ─── HERO ART COLLAGE ─── */
+.hero-art{position:relative;flex:0 0 400px;width:400px;height:460px;z-index:2;}
+.art-tile{
+  position:absolute;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:20px 22px;
+  border-radius:22px;
+  box-shadow:0 14px 36px rgba(0,0,0,0.28);
+  min-width:112px;
+}
+.art-emoji{font-size:3rem;line-height:1;}
+.art-label{font-weight:900;font-size:0.74rem;text-transform:uppercase;letter-spacing:2px;}
+.art-tile-1{top:4%;left:6%;background:var(--lime);color:var(--navy);animation:bob1 6s ease-in-out infinite;}
+.art-tile-2{top:10%;right:2%;background:var(--pink);color:white;animation:bob2 7s ease-in-out infinite;}
+.art-tile-3{bottom:14%;left:0;background:white;color:var(--purple);animation:bob3 6.5s ease-in-out infinite;}
+.art-tile-4{bottom:4%;right:8%;background:var(--lime-bright);color:var(--navy);animation:bob4 7.5s ease-in-out infinite;}
+@keyframes bob1{0%,100%{transform:rotate(-6deg) translateY(0);}50%{transform:rotate(-6deg) translateY(-10px);}}
+@keyframes bob2{0%,100%{transform:rotate(5deg) translateY(0);}50%{transform:rotate(5deg) translateY(-12px);}}
+@keyframes bob3{0%,100%{transform:rotate(4deg) translateY(0);}50%{transform:rotate(4deg) translateY(-8px);}}
+@keyframes bob4{0%,100%{transform:rotate(-7deg) translateY(0);}50%{transform:rotate(-7deg) translateY(-11px);}}
+.art-sparkle{position:absolute;font-weight:900;animation:twinkle 3s ease-in-out infinite;pointer-events:none;}
+.sparkle-1{top:8%;right:34%;color:var(--lime);font-size:1.4rem;}
+.sparkle-2{top:48%;right:38%;color:white;font-size:1.8rem;animation-delay:1s;}
+.sparkle-3{bottom:14%;right:48%;color:var(--lime-bright);font-size:1.2rem;animation-delay:2s;}
+@keyframes twinkle{0%,100%{opacity:0.35;transform:scale(0.85);}50%{opacity:1;transform:scale(1.15);}}
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:10px;
   background:var(--lime);color:var(--navy);
@@ -276,6 +302,40 @@ nav{
 
 /* ─── FOOTER ─── */
 footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+
+/* ─── COUNTDOWN + URGENCY ─── */
+.countdown-section{background:linear-gradient(135deg,var(--purple-dark) 0%,var(--purple-mid) 100%);color:white;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--navy);}
+.countdown-section::before{content:"";position:absolute;top:-80px;right:-80px;width:280px;height:280px;background:var(--lime);opacity:0.06;border-radius:50%;}
+.countdown-section::after{content:"";position:absolute;bottom:-60px;left:-60px;width:220px;height:220px;background:var(--pink);opacity:0.07;border-radius:50%;}
+.countdown-inner{max-width:780px;margin:0 auto;padding:54px 24px 44px;position:relative;z-index:2;}
+.cd-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(200,230,0,0.15);color:var(--lime);padding:8px 20px;border-radius:30px;font-size:0.78rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;border:1.5px solid rgba(200,230,0,0.35);}
+.cd-eyebrow .cd-pulse{width:8px;height:8px;background:var(--lime);border-radius:50%;animation:cdPulse 1.4s ease-in-out infinite;}
+@keyframes cdPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);}}
+.cd-deadline{font-size:1.05rem;font-weight:800;color:rgba(255,255,255,0.9);margin-bottom:26px;letter-spacing:0.2px;}
+.cd-deadline strong{color:var(--lime);}
+.cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:540px;margin:0 auto 28px;}
+.cd-box{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.2);border-radius:14px;padding:22px 8px;}
+.cd-num{display:block;font-size:clamp(2rem,5vw,3rem);font-weight:900;color:white;line-height:1;letter-spacing:-1.5px;font-variant-numeric:tabular-nums;}
+.cd-lbl{display:block;font-size:0.66rem;font-weight:800;color:var(--lime);text-transform:uppercase;letter-spacing:2px;margin-top:10px;}
+.cd-cta{display:inline-block;background:var(--lime);color:var(--navy);padding:13px 30px;border-radius:5px;font-weight:900;font-size:0.95rem;text-decoration:none;border:2px solid var(--navy);box-shadow:0 4px 18px rgba(200,230,0,0.35);transition:all 0.2s;}
+.cd-cta:hover{background:var(--lime-bright);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,230,0,0.45);}
+.cd-closed{background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.2);border-radius:14px;padding:24px;font-size:1rem;font-weight:800;color:white;}
+
+.urgency-strip{background:var(--lime);overflow:hidden;padding:13px 0;border-top:3px solid var(--navy);}
+.urgency-track{display:inline-flex;gap:34px;animation:scrollLeft 40s linear infinite;white-space:nowrap;padding-left:34px;}
+.urgency-msg{font-size:0.9rem;font-weight:800;color:var(--navy);display:inline-flex;align-items:center;gap:6px;}
+.urgency-sep{color:var(--purple);font-weight:900;font-size:1.1rem;}
+@keyframes scrollLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ─── WHATSAPP COMMUNITY BAND ─── */
+.wa-band{background:#25D366;padding:34px 48px;}
+.wa-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;}
+.wa-text{display:flex;align-items:center;gap:18px;}
+.wa-icon{flex-shrink:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.18);border-radius:50%;}
+.wa-text h3{color:white;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.3rem;line-height:1.2;margin-bottom:4px;letter-spacing:-0.3px;}
+.wa-text p{color:rgba(255,255,255,0.92);font-size:0.95rem;line-height:1.45;font-weight:600;}
+.wa-btn{background:white;color:#075E54;padding:13px 26px;border-radius:6px;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-size:0.95rem;border:2px solid #075E54;transition:transform 0.2s, box-shadow 0.2s;white-space:nowrap;}
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,0.2);}
 .footer-logo img{height:32px;filter:brightness(0) invert(1);}
 .footer-links{display:flex;gap:24px;flex-wrap:wrap;}
 .footer-links a{font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;}
@@ -292,15 +352,27 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 .fade-up{opacity:1;transform:none;}
 
 /* ─── RESPONSIVE ─── */
+@media(max-width:960px){
+  .hero{flex-direction:column;gap:28px;}
+  .hero-inner{max-width:680px;flex:0 0 auto;}
+  .hero-art{width:100%;max-width:420px;height:300px;flex:0 0 auto;margin:0 auto;}
+  .art-tile{padding:16px 18px;border-radius:18px;min-width:96px;}
+  .art-emoji{font-size:2.4rem;}
+  .art-label{font-size:0.68rem;letter-spacing:1.5px;}
+}
 @media(max-width:720px){
   nav{padding:10px 18px;}
   .nav-links{display:none;}
   .hero{padding:100px 22px 56px;min-height:auto;}
   .section-wrap,.pricing-inner,.faq-inner,.reg-inner{padding:60px 22px;}
-  .hero-pills{row-gap:6px;column-gap:8px;margin-bottom:22px;}
+  .hero-pills{row-gap:6px;column-gap:8px;margin-bottom:22px;justify-content:center;}
   .pill{font-size:0.8rem;padding:5px 12px;}
-  .hero-btns{gap:10px;}
-  .btn-lime,.btn-outline-white{padding:13px 22px;font-size:0.92rem;}
+  .hero-btns{flex-direction:column;gap:10px;}
+  .btn-lime,.btn-outline-white{display:block;width:100%;padding:14px 20px;font-size:0.95rem;text-align:center;box-sizing:border-box;}
+  .hero-art{height:260px;max-width:340px;}
+  .art-tile{padding:12px 14px;min-width:84px;}
+  .art-emoji{font-size:2rem;}
+  .art-label{font-size:0.62rem;}
   .stat-strip{display:grid;grid-template-columns:1fr 1fr;gap:22px 16px;padding:24px 18px;}
   .stat-n{font-size:1.8rem;}
   .prog-grid,.tracks-grid,.form-row,.combo-box{grid-template-columns:1fr;}
@@ -308,6 +380,20 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
   .impact-grid{grid-template-columns:1fr 1fr;}
   footer{flex-direction:column;align-items:flex-start;padding:32px 18px;}
   .float{bottom:14px;right:14px;padding:10px 18px;font-size:0.82rem;}
+  .wa-band{padding:26px 22px;}
+  .wa-inner{flex-direction:column;text-align:center;gap:18px;}
+  .wa-text{flex-direction:column;text-align:center;gap:12px;}
+  .wa-text h3{font-size:1.15rem;}
+  .wa-text p{font-size:0.9rem;}
+  .wa-btn{width:100%;justify-content:center;padding:14px 20px;}
+  .countdown-inner{padding:40px 18px 32px;}
+  .cd-deadline{font-size:0.95rem;margin-bottom:20px;}
+  .cd-grid{gap:8px;max-width:none;}
+  .cd-box{padding:14px 4px;border-radius:10px;}
+  .cd-num{letter-spacing:-1px;}
+  .cd-lbl{font-size:0.6rem;letter-spacing:1.5px;margin-top:8px;}
+  .urgency-msg{font-size:0.82rem;}
+  .urgency-track{gap:24px;padding-left:24px;}
 }
 
 /* ── WEEK CHECKBOXES ── */
@@ -328,6 +414,23 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 @media(max-width:700px){.children-cols{grid-template-columns:1fr;}}
 </style>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '619390871912118');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=619390871912118&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -352,7 +455,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
   <div class="hero-blob2"></div>
   <div class="hero-bg-text">BOOKS</div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">📚 Enrolling Now · 27 Apr – 29 May 2026</div>
+    <div class="hero-eyebrow">📚 Enrolling Now · 18 May – 19 Jun 2026</div>
     <h1 class="hero-title">
       <span class="italic">Summer</span>
       <span class="sub">Literary Camp 2026</span>
@@ -365,18 +468,62 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
       <span class="pill p-ghost">Class 1–8 · Age 7–16</span>
       <div style="width:100%;height:0;"></div>
       <span class="pill p-ghost">5 Weeks · Mon–Fri Daily</span>
-      <span class="pill p-ghost">📅 27 Apr – 29 May 2026</span>
+      <span class="pill p-ghost">📅 18 May – 19 Jun 2026</span>
     </div>
     <div class="hero-btns">
       <a href="#register" class="btn-lime">Reserve Your Child's Seat</a>
       <a href="#curriculum" class="btn-outline-white">View Full Curriculum →</a>
     </div>
   </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="art-tile art-tile-1"><span class="art-emoji">📖</span><span class="art-label">Read</span></div>
+    <div class="art-tile art-tile-2"><span class="art-emoji">🎤</span><span class="art-label">Speak</span></div>
+    <div class="art-tile art-tile-3"><span class="art-emoji">✏️</span><span class="art-label">Write</span></div>
+    <div class="art-tile art-tile-4"><span class="art-emoji">🎭</span><span class="art-label">Perform</span></div>
+    <span class="art-sparkle sparkle-1">✦</span>
+    <span class="art-sparkle sparkle-2">★</span>
+    <span class="art-sparkle sparkle-3">✦</span>
+  </div>
+</section>
+
+<!-- ── COUNTDOWN ── -->
+<section class="countdown-section" id="countdown">
+  <div class="countdown-inner">
+    <div class="cd-eyebrow"><span class="cd-pulse"></span> Registration closes in</div>
+    <div class="cd-deadline">Last day to register: <strong>17 May 2026</strong> · 11:59 PM IST</div>
+    <div id="cd-grid" class="cd-grid">
+      <div class="cd-box"><span class="cd-num" id="cd-d">--</span><span class="cd-lbl">Days</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-h">--</span><span class="cd-lbl">Hours</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-m">--</span><span class="cd-lbl">Mins</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-s">--</span><span class="cd-lbl">Secs</span></div>
+    </div>
+    <a href="#register" class="cd-cta">Reserve Your Child's Seat →</a>
+  </div>
+  <div class="urgency-strip" aria-hidden="true">
+    <div class="urgency-track">
+      <span class="urgency-msg">⚡ Batches filling up, confirmed on first-registered basis</span>
+      <span class="urgency-sep">·</span>
+      <span class="urgency-msg">👥 Only 10 kids per batch, real attention from instructors</span>
+      <span class="urgency-sep">·</span>
+      <span class="urgency-msg">🎓 Live with trained Bukmuk instructors, not freelancers</span>
+      <span class="urgency-sep">·</span>
+      <span class="urgency-msg">📚 Full-camp students eligible for the Bukmuk Anthology</span>
+      <span class="urgency-sep">·</span>
+      <span class="urgency-msg">⚡ Batches filling up, confirmed on first-registered basis</span>
+      <span class="urgency-sep">·</span>
+      <span class="urgency-msg">👥 Only 10 kids per batch, real attention from instructors</span>
+      <span class="urgency-sep">·</span>
+      <span class="urgency-msg">🎓 Live with trained Bukmuk instructors, not freelancers</span>
+      <span class="urgency-sep">·</span>
+      <span class="urgency-msg">📚 Full-camp students eligible for the Bukmuk Anthology</span>
+      <span class="urgency-sep">·</span>
+    </div>
+  </div>
 </section>
 
 <!-- ── STATS ── -->
 <div class="stat-strip">
-  <div class="stat"><span class="stat-n">5</span><span class="stat-l">Weeks · Apr–May</span></div>
+  <div class="stat"><span class="stat-n">5</span><span class="stat-l">Weeks · May–Jun</span></div>
   <div class="stat"><span class="stat-n">25</span><span class="stat-l">Live Sessions</span></div>
   <div class="stat"><span class="stat-n">2</span><span class="stat-l">Age Tracks</span></div>
   <div class="stat"><span class="stat-n">10</span><span class="stat-l">Kids Per Batch</span></div>
@@ -485,7 +632,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         <p class="tsub">1 hour per session · Storytelling, drama, expression</p>
       </div>
       <div class="track-body">
-        <div class="track-time">🌅 11am–12 noon &nbsp;|&nbsp; 🌆 4:30pm–5:30pm</div>
+        <div class="track-time">🌅 12:30pm–1:30pm &nbsp;|&nbsp; 🌆 4:30pm–5:30pm</div>
         <p class="tdesc">Designed around play-based learning, children absorb language skills through imagination rather than instruction. Each week is self-contained, so joining any week works without needing the previous ones.</p>
         <ul class="outcome-list">
           <li>Interactive read-alouds, dramatisation, and roleplay</li>
@@ -536,7 +683,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-junior">
-          <span class="wk-num">Week 1 · 27 Apr–1 May</span>
+          <span class="wk-num">Week 1 · 18–22 May</span>
           <h4>Animals & Nature</h4>
         </div>
         <div class="wk-body">
@@ -553,7 +700,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-junior">
-          <span class="wk-num">Week 2 · 4–8 May</span>
+          <span class="wk-num">Week 2 · 25–29 May</span>
           <h4>Family & Community</h4>
         </div>
         <div class="wk-body">
@@ -571,7 +718,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-junior">
-          <span class="wk-num">Week 3 · 11–15 May</span>
+          <span class="wk-num">Week 3 · 1–5 Jun</span>
           <h4>Adventure & Travel</h4>
         </div>
         <div class="wk-body">
@@ -588,7 +735,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-junior">
-          <span class="wk-num">Week 4 · 18–22 May</span>
+          <span class="wk-num">Week 4 · 8–12 Jun</span>
           <h4>Feelings & Emotions</h4>
         </div>
         <div class="wk-body">
@@ -605,7 +752,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-junior">
-          <span class="wk-num">Week 5 · 25–29 May ★</span>
+          <span class="wk-num">Week 5 · 15–19 Jun ★</span>
           <h4>Finding Nemo & Showcase Day</h4>
         </div>
         <div class="wk-body">
@@ -629,7 +776,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-senior-bg">
-          <span class="wk-num">Week 1 · 27 Apr–1 May</span>
+          <span class="wk-num">Week 1 · 18–22 May</span>
           <h4>Communication Basics</h4>
         </div>
         <div class="wk-body">
@@ -646,7 +793,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-senior-bg">
-          <span class="wk-num">Week 2 · 4–8 May</span>
+          <span class="wk-num">Week 2 · 25–29 May</span>
           <h4>Persuasion Skills</h4>
         </div>
         <div class="wk-body">
@@ -663,7 +810,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-senior-bg">
-          <span class="wk-num">Week 3 · 11–15 May</span>
+          <span class="wk-num">Week 3 · 1–5 Jun</span>
           <h4>Current Affairs</h4>
         </div>
         <div class="wk-body">
@@ -680,7 +827,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-senior-bg">
-          <span class="wk-num">Week 4 · 18–22 May</span>
+          <span class="wk-num">Week 4 · 8–12 Jun</span>
           <h4>Opinions & Leadership</h4>
         </div>
         <div class="wk-body">
@@ -697,7 +844,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
       <div class="week-card">
         <div class="wk-head tc-senior-bg">
-          <span class="wk-num">Week 5 · 25–29 May ★</span>
+          <span class="wk-num">Week 5 · 15–19 Jun ★</span>
           <h4>Creative Expression & Showcase</h4>
         </div>
         <div class="wk-body">
@@ -989,7 +1136,7 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 
   <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do children receive a certificate after the camp?<em>▼</em></div><div class="faq-a">Yes, every child who completes a week receives a digital certificate of participation, sent to your email within 48 hours of the week ending. Children who attend all 5 weeks receive a special Bukmuk Bookverse Completion Certificate. Physical certificates can be requested at an additional courier charge of ₹150, let us know at registration.</div></div>
 
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">When do sessions happen? Can we choose our batch?<em>▼</em></div><div class="faq-a">Senior: 11am–12noon and 3–4pm. Junior: 12:30–1:30pm and 4:30–5:30pm. Weeks run: Week 1 (27 Apr–1 May), Week 2 (4–8 May), Week 3 (11–15 May), Week 4 (18–22 May), Week 5 (25–29 May). You can state your preferred batch at registration, we'll confirm based on availability.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">When do sessions happen? Can we choose our batch?<em>▼</em></div><div class="faq-a">Senior: 11am–12noon and 3–4pm. Junior: 12:30–1:30pm and 4:30–5:30pm. Weeks run: Week 1 (18–22 May), Week 2 (25–29 May), Week 3 (1–5 Jun), Week 4 (8–12 Jun), Week 5 (15–19 Jun). You can state your preferred batch at registration, we'll confirm based on availability.</div></div>
 
 </div>
 </div>
@@ -1063,12 +1210,12 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         <div class="fg">
           <label>Select Weeks *</label>
           <div class="week-checks" id="child1_week_checks">
-            <label class="wck wck-all"><input type="checkbox" id="c1_all" onchange="toggleAllWeeks(1,this)"> <span>⭐ All 5 Weeks (27 Apr–29 May) <strong style="color:var(--purple)">₹8,500</strong> <em>Save ₹1,500</em></span></label>
-            <label class="wck"><input type="checkbox" id="c1_w1" value="1" onchange="updatePrice()"> <span>Week 1 · 27 Apr–1 May<em>Animals & Nature / Communication Basics</em></span></label>
-            <label class="wck"><input type="checkbox" id="c1_w2" value="2" onchange="updatePrice()"> <span>Week 2 · 4–8 May<em>Family & Community / Persuasion Skills</em></span></label>
-            <label class="wck"><input type="checkbox" id="c1_w3" value="3" onchange="updatePrice()"> <span>Week 3 · 11–15 May<em>Adventure & Travel / Current Affairs</em></span></label>
-            <label class="wck"><input type="checkbox" id="c1_w4" value="4" onchange="updatePrice()"> <span>Week 4 · 18–22 May<em>Feelings & Emotions / Opinions & Leadership</em></span></label>
-            <label class="wck"><input type="checkbox" id="c1_w5" value="5" onchange="updatePrice()"> <span>Week 5 · 25–29 May<em>Showcase Week ⭐</em></span></label>
+            <label class="wck wck-all"><input type="checkbox" id="c1_all" onchange="toggleAllWeeks(1,this)"> <span>⭐ All 5 Weeks (18 May–19 Jun) <strong style="color:var(--purple)">₹8,500</strong> <em>Save ₹1,500</em></span></label>
+            <label class="wck"><input type="checkbox" id="c1_w1" value="1" onchange="updatePrice()"> <span>Week 1 · 18–22 May<em>Animals & Nature / Communication Basics</em></span></label>
+            <label class="wck"><input type="checkbox" id="c1_w2" value="2" onchange="updatePrice()"> <span>Week 2 · 25–29 May<em>Family & Community / Persuasion Skills</em></span></label>
+            <label class="wck"><input type="checkbox" id="c1_w3" value="3" onchange="updatePrice()"> <span>Week 3 · 1–5 Jun<em>Adventure & Travel / Current Affairs</em></span></label>
+            <label class="wck"><input type="checkbox" id="c1_w4" value="4" onchange="updatePrice()"> <span>Week 4 · 8–12 Jun<em>Feelings & Emotions / Opinions & Leadership</em></span></label>
+            <label class="wck"><input type="checkbox" id="c1_w5" value="5" onchange="updatePrice()"> <span>Week 5 · 15–19 Jun<em>Showcase Week ⭐</em></span></label>
           </div>
         </div>
       </div>
@@ -1117,12 +1264,12 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
         <div class="fg">
           <label>Select Weeks</label>
           <div class="week-checks" id="child2_week_checks">
-            <label class="wck wck-all"><input type="checkbox" id="c2_all" onchange="toggleAllWeeks(2,this)"> <span>⭐ All 5 Weeks (27 Apr–29 May) <strong style="color:var(--purple)">₹8,500</strong> <em>Save ₹1,500</em></span></label>
-            <label class="wck"><input type="checkbox" id="c2_w1" value="1" onchange="updatePrice()"> <span>Week 1 · 27 Apr–1 May<em>Animals & Nature / Communication Basics</em></span></label>
-            <label class="wck"><input type="checkbox" id="c2_w2" value="2" onchange="updatePrice()"> <span>Week 2 · 4–8 May<em>Family & Community / Persuasion Skills</em></span></label>
-            <label class="wck"><input type="checkbox" id="c2_w3" value="3" onchange="updatePrice()"> <span>Week 3 · 11–15 May<em>Adventure & Travel / Current Affairs</em></span></label>
-            <label class="wck"><input type="checkbox" id="c2_w4" value="4" onchange="updatePrice()"> <span>Week 4 · 18–22 May<em>Feelings & Emotions / Opinions & Leadership</em></span></label>
-            <label class="wck"><input type="checkbox" id="c2_w5" value="5" onchange="updatePrice()"> <span>Week 5 · 25–29 May<em>Showcase Week ⭐</em></span></label>
+            <label class="wck wck-all"><input type="checkbox" id="c2_all" onchange="toggleAllWeeks(2,this)"> <span>⭐ All 5 Weeks (18 May–19 Jun) <strong style="color:var(--purple)">₹8,500</strong> <em>Save ₹1,500</em></span></label>
+            <label class="wck"><input type="checkbox" id="c2_w1" value="1" onchange="updatePrice()"> <span>Week 1 · 18–22 May<em>Animals & Nature / Communication Basics</em></span></label>
+            <label class="wck"><input type="checkbox" id="c2_w2" value="2" onchange="updatePrice()"> <span>Week 2 · 25–29 May<em>Family & Community / Persuasion Skills</em></span></label>
+            <label class="wck"><input type="checkbox" id="c2_w3" value="3" onchange="updatePrice()"> <span>Week 3 · 1–5 Jun<em>Adventure & Travel / Current Affairs</em></span></label>
+            <label class="wck"><input type="checkbox" id="c2_w4" value="4" onchange="updatePrice()"> <span>Week 4 · 8–12 Jun<em>Feelings & Emotions / Opinions & Leadership</em></span></label>
+            <label class="wck"><input type="checkbox" id="c2_w5" value="5" onchange="updatePrice()"> <span>Week 5 · 15–19 Jun<em>Showcase Week ⭐</em></span></label>
           </div>
         </div>
       </div>
@@ -1142,6 +1289,22 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 </div>
 
 
+
+<!-- ── WHATSAPP COMMUNITY BAND ── -->
+<section class="wa-band">
+  <div class="wa-inner">
+    <div class="wa-text">
+      <div class="wa-icon">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+      </div>
+      <div>
+        <h3>Join our events community</h3>
+        <p>Book clubs, literary events &amp; parties, and much more</p>
+      </div>
+    </div>
+    <a href="https://chat.whatsapp.com/JYBs3RZvRA2Ci1cueIZ1Uf" target="_blank" rel="noopener" class="wa-btn">Join WhatsApp Group →</a>
+  </div>
+</section>
 
 <!-- ── FOOTER ── -->
 <footer>
@@ -1163,6 +1326,38 @@ footer{background:#020E18;padding:44px 48px;display:flex;align-items:center;just
 </a>
 
 <script>
+// ── COUNTDOWN ──
+(function(){
+  var DEADLINE = new Date('2026-05-17T23:59:59+05:30').getTime();
+  var d = document.getElementById('cd-d');
+  var h = document.getElementById('cd-h');
+  var m = document.getElementById('cd-m');
+  var s = document.getElementById('cd-s');
+  var grid = document.getElementById('cd-grid');
+  if(!d || !grid) return;
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function tick(){
+    var diff = DEADLINE - Date.now();
+    if(diff <= 0){
+      grid.innerHTML = '<div class="cd-closed">⚠️ Online registration is closed. Please contact us at +91 81302 86286 to check seat availability.</div>';
+      var cta = document.querySelector('.cd-cta');
+      if(cta) cta.style.display = 'none';
+      clearInterval(timer);
+      return;
+    }
+    var days = Math.floor(diff / 86400000);
+    var hrs  = Math.floor((diff / 3600000) % 24);
+    var mins = Math.floor((diff / 60000) % 60);
+    var secs = Math.floor((diff / 1000) % 60);
+    d.textContent = pad(days);
+    h.textContent = pad(hrs);
+    m.textContent = pad(mins);
+    s.textContent = pad(secs);
+  }
+  tick();
+  var timer = setInterval(tick, 1000);
+})();
+
 // ── RAZORPAY KEY ──
 const RAZORPAY_KEY = 'rzp_live_RDqX2u6rbGMpdM';
 
@@ -1271,8 +1466,8 @@ function getWeeksPrice(selected) {
 
 function getWeeksLabel(selected) {
   if(selected.length === 0) return '';
-  if(selected.length === 5) return 'All 5 Weeks (27 Apr-29 May)';
-  var labels = {1:'Week 1 (27 Apr-1 May)',2:'Week 2 (4-8 May)',3:'Week 3 (11-15 May)',4:'Week 4 (18-22 May)',5:'Week 5 (25-29 May)'};
+  if(selected.length === 5) return 'All 5 Weeks (18 May-19 Jun)';
+  var labels = {1:'Week 1 (18-22 May)',2:'Week 2 (25-29 May)',3:'Week 3 (1-5 Jun)',4:'Week 4 (8-12 Jun)',5:'Week 5 (15-19 Jun)'};
   return selected.map(function(w){ return labels[w]; }).join(', ');
 }
 
@@ -1489,6 +1684,9 @@ function startPayment() {
     handler: function(response) {
       // Payment successful, log as PAID
       sendToGoogleSheet(response.razorpay_payment_id, total, 'PAID');
+      if (typeof fbq === 'function') {
+        fbq('track', 'Purchase', { value: total, currency: 'INR' });
+      }
       showSuccess(total, response.razorpay_payment_id);
     },
     modal: {
